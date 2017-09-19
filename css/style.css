@@ -61,11 +61,11 @@ body::-webkit-scrollbar { display: none; }
 #left { left:3%; }
 #right { right:3%; }
 
-#credit 
+#credit, .tabcontent 
   { 
   position:fixed; 
   top:25px; 
-  left:42%; 
+  left:40%; 
   color:#eaeaea; 
   font-family: helvetica, arial, sans-serif;
   line-height: 25px;
@@ -125,7 +125,7 @@ body::-webkit-scrollbar { display: none; }
   font-size: 1.5em; padding: 10px;}
 
 
-/* Dotstyle */
+/* Dotstyle 
 .dotstyle ul {
   position: relative;
   display: inline-block;
@@ -155,11 +155,11 @@ body::-webkit-scrollbar { display: none; }
   background-color: #fff;
   background-color: rgba(255,255,255,0.3);
   text-indent: -999em;
-  cursor: pointer; /* make the text accessible to screen readers */
+  cursor: pointer;  make the text accessible to screen readers 
   position: absolute;
-}
+} 
 
-/* fill up */
+== fill up ==
 .dotstyle-fillup li a {
   overflow: hidden;
   background-color: rgba(0,0,0,0);
@@ -182,5 +182,119 @@ body::-webkit-scrollbar { display: none; }
 .dotstyle-fillup li a:hover,
 .dotstyle-fillup li a:focus {
   background-color: rgba(0,0,0,0.2);
+}
+end dotstyle */
+
+/*** bottom menu ***/
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #e7e7e7;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    border-bottom: 5px solid #fc0065;
+}
+
+/* Style the tab content */
+.tabcontent {
+    position: fixed;
+    top: 440px;
+    left: 25px;
+
+    width: 1200px;
+    height: 180px;
+
+    display: none;
+    padding: 6px 12px;
+    
+    background-color: #ffffff;
+    color: #212121;
+}
+
+.btnContentClose, .btnContentModalFAQ {
+  padding: 8px 10px 8px 10px;
+  background-color: #4a00a3;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+
+  position: relative;
+  top: -175px;
+  left: 1130px;
+}
+
+.btnContentModalFAQ {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.contentHeader { color: #4a00a3; }
+
+.infoText {
+  height: 160px;
+  width: 28%;
+  margin: 10px 0px 0px 10px;
+}
+
+.infoText p {
+  line-height: 1.2em;
+}
+
+.availFonts {
+  height: 170px;
+  width: 60%;
+  margin-left: 10px;
+
+  position: relative;
+  top: -190px;
+  left: 350px;
+}
+
+.box {
+  float: left;
+  width: 160px;
+  height: 30px;
+
+  margin: 2px;
+  padding-top: 10px;
+  text-align: center;
+
+  border: solid 2px #ababab;
+}
+
+.chosenFont {
+  float: left;
+  width: 160px;
+  height: 30px;
+
+  margin: 2px;
+  padding-top: 10px;
+  text-align: center;
+
+  border: solid 2px #fc0065;
+}
+
+.myClickState {
+  border: solid 2px #fc0065;
 }
 

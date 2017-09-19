@@ -15,7 +15,7 @@
 <body>
     
   <div id="slide-window">
-  
+
     <ol id="slides" start="1">
     
       <li class="slide color-0 alive" style="background-image:url(img/1.jpg)"></li>
@@ -30,7 +30,7 @@
     
     </ol>
 
-  <!-- TODO: add dots to the slider-->
+    <!-- TODO: add dots to the slider-->
 
     <span class="nav fa fa-chevron-left fa-3x" id="left"></span>
     <span class="nav fa fa-chevron-right fa-3x" id="right"></span>
@@ -44,12 +44,80 @@
     <!-- choose background -->    
     <div id="credit" class="choose-bg">Choose a background image<br><span id="count">1</span>/5</div>
 
-    <!-- bottom menu -->  
-    <input id="menu" type="button" class="button menuText" value="Text">
-    <input id="menu" type="button" class="button menuColor" value="Color">
-    <input id="menu" type="button" class="button menuShape" value="Shape">
-    <input id="menu" type="button" class="button menuInstallation" value="Installation">
-    <input id="menu" type="button" class="button menuQtyShipping" value="Qty">
+    <!-- bottom menu --> 
+    <!-- todo: remove bottom border when tabcontent is closed -->
+    <div class="tab"> 
+      <button id="menu" class="tablinks button menuText" onclick="openMenu(event, 'Text')">Text</button>
+      
+      <button id="menu" class="tablinks button menuColor" onclick="openMenu(event, 'Color')">Color</button>
+      
+      <button id="menu" class="tablinks button menuShape" onclick="openMenu(event, 'Shape')">Shape</button>
+      
+      <button id="menu" class="tablinks button menuInstallation" onclick="openMenu(event, 'Installation')">Installation</button>
+      
+      <button id="menu" class="tablinks button menuQtyShipping" onclick="openMenu(event, 'QtyShipping')">Qty</button>
+    </div>
+
+    <div id="Text" class="tabcontent">
+      <div class="infoText">
+        <h3 class="contentHeader">Text Options</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+      <div class="availFonts">
+        <h5>AVAILABLE FONTS</h5>
+        <div class="fonts">
+          <div class="box">font A</div>
+          <div class="box">font B</div>
+          <div class="box">font C</div>
+          <div class="box">font D</div>
+          <div class="box">font E</div>
+          <div class="box">font F</div>
+          <div class="box">font G</div>
+          <div class="box">font H</div>
+        </div>
+      </div>
+      <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="Color" class="tabcontent">
+      <div class="infoText">
+        <h3 class="contentHeader">Color Options</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+      <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="Shape" class="tabcontent">
+      <div class="infoText">
+        <h3 class="contentHeader">Shape Options</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+      <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="Installation" class="tabcontent">
+      <div class="infoText">
+        <h3 class="contentHeader">Installation Options</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+      <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="QtyShipping" class="tabcontent">
+      <div class="infoText">
+        <h3 class="contentHeader">Quantity and Shipping</h3>
+        <h4>SIZE 00" x 00"</h4>
+        <p>Estimated delivery date is explained and maybe few more words</p>
+      </div>
+        <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
+        <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+    </div>
+
+
 
     <!-- call to action -->  
     <input id="menu" type="button" class="button menuGetQuote" value="Get Quote">
@@ -58,7 +126,7 @@
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-    <script  src="js/index.js"></script>
+    <script  src="js/index.js"></script><!-- slide window -->
 
 </body>
 </html>
