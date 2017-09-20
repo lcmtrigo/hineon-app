@@ -20,29 +20,17 @@ $(document).ready(function()
     
   $('#left').click(function() { Slide('back'); }); 
   $('#right').click(function() { Slide('forward'); }); 
-
-  /*** avail fonts ***/
-
-  // $('box').click(function(){
-  //   if($('.font-active').length){
-  //     $('.font-active').not($(this)).removeClass('font-active').addClass('box');
-  //   }
-  //   $(this).removeClass('box').addClass('font-active');
-  // });
         
 });
 
 function Slide(direction)
-	{
-   
+	{  
     if (direction == 'back') { var $target = $.global.item - 1; }
     if (direction == 'forward') { var $target = $.global.item + 1; }  
     
     if ($target == -1) { DoIt($.global.total-1); } 
     else if ($target == $.global.total) { DoIt(0); }  
-    else { DoIt($target); }
-    
-    
+    else { DoIt($target); } 
 	}
 
 function DoIt(target)
@@ -85,14 +73,7 @@ function openMenu(evt, menuName) {
   evt.currentTarget.className += " active";
 }
 
-$('.box').on('click', function(){
-    if ($('.chosenFont').length) {
-      $('.chosenFont').not($(this)).removeClass('chosenFont').addClass('box');
-    };
-    $(this).removeClass('chosenFont').addClass('box');
-  });
-
 // todo: remove bottom border when tabcontent is closed
 // function menuClose() {
 //   document.getElementById("menu").style.display='none';
-// }
+//
