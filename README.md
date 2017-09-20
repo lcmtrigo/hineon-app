@@ -1,3 +1,3 @@
 # Todo
-  * remove bottom border from a tab when its content is closed
+  * for font size and text align, change it so that it doesn't show a pink border when selected, but changes the background to #9a9a9a
   * add dots to the slider
