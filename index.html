@@ -218,31 +218,113 @@
     </div>
 
     <div id="Shape" class="tabcontent">
-      <div class="infoText">
+      <div class="tabsection infoText">
         <h3 class="contentHeader">Shape Options</h3>
         <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
       </div>
+
+      <div class="tabsection indoorOutdoor">
+        <h4>AVAILABLE BACKDROP SHAPES</h4>
+
+        <!-- indoor -->
+        <input type="radio" id="In" name="chooseIndoorOutdoor" value="indoor">
+        <label for="In" class="displayRadio" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">INDOOR</p></strong>
+          <p class="colorSummary">Clear Acrylic</p>
+        </label>
+
+        <!-- outdoor -->
+        <input type="radio" id="Out" name="chooseIndoorOutdoor" value="outdoor">
+        <label for="Out" class="displayRadio" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">OUTDOOR</p></strong>
+          <p class="colorSummary">Clear Acrylic</p>
+        </label>
+      </div>
+
+      <div class="tabsection availBackdrop">
+        <!-- choose a backdrop shape -->
+        <input type="radio" id="SQ" name="chooseBackdrop" value="square">
+          <label for="SQ"><img src="http://via.placeholder.com/120x90/?text=square"></label>
+        <input type="radio" id="RT" name="chooseBackdrop" value="rectangle">
+          <label for="RT"><img src="http://via.placeholder.com/120x90/?text=rectangle"></label>
+        <input type="radio" id="LT" name="chooseBackdrop" value="letters">
+          <label for="LT"><img src="http://via.placeholder.com/120x90/?text=letters"></label>
+        <input type="radio" id="CE" name="chooseBackdrop" value="circle">
+          <label for="CE"><img src="http://via.placeholder.com/120x90/?text=circle"></label>
+      </div>
       <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
       <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
 
+
+
     <div id="Installation" class="tabcontent">
-      <div class="infoText">
+      <div class="tabsection infoText">
         <h3 class="contentHeader">Installation Options</h3>
         <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
       </div>
+
+      <div class="tabsection availInstall">
+        <h4>AVAILABLE NAIL TYPES</h4>
+
+        <!-- standard -->
+        <input type="radio" id="In" name="chooseIndoorOutdoor" value="indoor">
+        <label for="In" class="displayRadio nailType" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">STANDARD</p></strong>
+          <p class="colorSummary">Explain explain and more explanations. The explanation of explaining things that explains this and that and other variety of concerns.</p>
+        </label>
+
+        <!-- hanging -->
+        <input type="radio" id="Out" name="chooseIndoorOutdoor" value="outdoor">
+        <label for="Out" class="displayRadio nailType" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">HANGING</p></strong>
+          <p class="colorSummary">Explain explain and more explanations. The explanation of explaining things that explains this and that and other variety of concerns.</p>
+        </label>
+      </div>
       <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
       <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
 
+
     <div id="QtyShipping" class="tabcontent">
-      <div class="infoText">
+      <div class="tabsection infoText qtyShipping">
         <h3 class="contentHeader">Quantity and Shipping</h3>
         <h4>SIZE 00" x 00"</h4>
-        <p>Estimated delivery date is explained and maybe few more words</p>
+        <label for="qty">QUANTITY</label>
+        <input id="qty" type="number" name="orderQuantity">     
       </div>
-        <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
-        <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+
+      <div class="tabsection basicInfo">
+        <div class="ifield">
+          <label for="name">NAME</label>
+          <input id="name" type="text" name="fullName" size="42">
+        </div>
+        <div class="ifield">
+          <label for="basicEmail">EMAIL</label>
+          <input id="basicEmail" type="text" name="orderEmail" size="42">
+        </div>
+        <div class="ifield">
+          <label for="basicZipcode">ZIPCODE</label>
+          <input id="basicZipcode" type="text" name="orderZip">
+          <input id="basicCountry" list="countries" name="orderCountry">
+
+          <datalist id="countries">
+            <option value="Canada">
+            <option value="United States">
+            <option value="United Kingdom">
+            <option value="Europe">
+            <option value="Asia">
+            <option value="AUS/NZ">
+          </datalist>
+        </div>
+      </div>
+
+      <div class="tabsection comment">
+        <label for="comment">COMMENT</label>
+        <textarea id="comment" name="orderComment" rows="8" cols="45">Type something</textarea>
+      </div>
+      <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
   </div><!--Closing Menu Tab Content-->
 

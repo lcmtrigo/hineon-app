@@ -377,12 +377,22 @@ ul.cta li:last-child {
   line-height: 1.2em;
 }
 
-.availFonts, .availColors {
+.availFonts, 
+.availColors, 
+.indoorOutdoor, 
+.availInstall, 
+.basicInfo {
   left:360px;
 }
 
-.availFonts { width: 720px; }
-.availColors { width: 1000px; }
+.availBackdrop { left: 670px; padding-top: 50px;}
+
+.availFonts, { width: 720px; }
+.availColors, .availInstall { width: 1000px; }
+.indoorOutdoor { width: 320px; }
+
+.comment { left: 720px; }
+
 
 .sizeAlign {
   width: 150px;
@@ -452,9 +462,25 @@ ul.cta li:last-child {
 
 input[type="radio"] { display: none; }
 
-input[type="radio"]:checked+label {
+input[type="radio"]:checked+label:not(.displayRadio) {
   outline: solid 2px #fc0065;
 }
+
+.displayRadio, 
+.qtyShipping label,
+.basicInfo label,
+.comment label
+ {
+  text-align: left !important;
+  border: none !important;
+}
+
+.qtyShipping label,
+.basicInfo label
+.comment label {
+  line-height: 1.2em;
+}
+
 
 /*
 todo: for font size and text align, change it so that it doesn't show a pink border when selected, but changes the background to #9a9a9a
@@ -472,7 +498,8 @@ todo: for font size and text align, change it so that it doesn't show a pink bor
   font-size: 0.8em;
 }
 
-.availColors h4 { margin-bottom: 0; }
+.availColors h4, .indoorOutdoor h4,
+.availInstall h4 { margin-bottom: 0; }
 
 .colorType { 
   width: 200px; 
@@ -484,4 +511,38 @@ todo: for font size and text align, change it so that it doesn't show a pink bor
 .pure, .solid {
   width: 300px;
   margin-left: 15px;
+}
+
+.indoorOutdoor input[type="radio"],
+.availInstall input[type="radio"] {
+  display: inherit;
+  float: left;
+  margin-top: 23px;
+  margin-right: 10px;
+}
+
+label.displayRadio {
+  margin-right: 50px;
+}
+
+label.nailType {
+  width: 280px;
+}
+
+#qty, #name, #basicEmail, #baiscZipcode, #comment {
+  margin-left: 20px;
+}
+
+.qtyLabel {
+  width: 30px;
+  margin-bottom: 10px;
+  line-height: 0.1em !important;
+}
+
+.basicInfo {
+  width: 360px;
+}
+
+.ifield {
+  margin-bottom: 20px;
 }
