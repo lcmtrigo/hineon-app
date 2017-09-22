@@ -14,15 +14,19 @@ body {
   overflow: hidden;
 }
 
-input:focus, button:focus {outline:transparent;}
+input:focus, button:focus, select:focus {outline:transparent;}
 
 
-/* ULTIMATE DISPLAY NONE CLASS */
+
+/* all timers */
 
 .displayNone {
   display:none;
 }
 
+.displayBlock {
+  display:block;
+}
 
 /*slider*/
 
@@ -48,6 +52,15 @@ input:focus, button:focus {outline:transparent;}
   border: 0;
 }
 
+/* slider outdoor images */
+
+.outdoorSlider {
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:none;
+}
+
 /* SWITCH OFF */
 
 .switchdark {
@@ -55,7 +68,6 @@ input:focus, button:focus {outline:transparent;}
   height: 100%;
   background-color: rgba(0,0,0,0.65);
   position:absolute;
-  display: hidden;
   z-index: 1; /* Stay below all other assets */
 }
 
@@ -452,7 +464,7 @@ ul.cta li:last-child {
 .tabsection {
   position:absolute; 
   top:12px;
-  max-height:160px;
+  max-height:130px;
   overflow:hidden;
   padding:12px;
 }
@@ -488,7 +500,7 @@ ul.cta li:last-child {
   width: 720px;
 }
 
-.availColors { width: 1200px; }
+.availColors { width: 900px; }
 
 .availColors p, .indoorOutdoor p, .availNails p {
   margin:0;
@@ -565,7 +577,10 @@ input[type="radio"]:disabled+label {
   display:none;
 }
 
-.displayRadio: {
+.displayRadio, 
+.qtyShipping label,
+.basicInfo label,
+.comment label: {
   text-align: left !important;
   border: none !important;
 }
@@ -611,3 +626,81 @@ label.displayRadio {
 
 /* QTY & SHIPPING INPUT */
 
+
+/* NOTHING IS HAPPENING WITH THESE LINES...
+
+.qtyShipping label,
+.basicInfo label
+.comment label {
+  line-height: 1.2em;
+}*/
+
+#qty, #name, #basicEmail, #basicZipcode, #basicCountry, #comment {
+  margin-left: 20px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  max-width: 245px;
+  padding: 5px;
+}
+
+#qty:focus, #name:focus, #basicEmail:focus, #baiscZipcode:focus, #comment:focus {
+  border: 1px solid #fc0065;
+} 
+
+#qty {
+  max-width: 70px;
+}
+
+#basicZipcode {
+  max-width: 75px;
+}
+
+#basicCountry {
+  margin-left: 5px;
+  width: 160px;
+  height: 31px;
+}
+
+#comment {
+  resize:none;
+  font-size:1em;
+  max-width: 345px;
+  height:125px;
+  color: #444;
+}
+
+.qtyLabel {
+  width: 30px;
+  margin-bottom: 10px;
+  line-height: 0.1em !important;
+}
+
+.basicInfo {
+  left: 300px;
+  width: 360px;
+}
+
+.basicInfo label {
+  display:inline-block;
+  width:75px;
+  text-align: right;
+}
+
+.ifield {
+  margin-bottom: 20px;
+}
+
+.comment {
+  left:720px;
+  position:relative;
+  width: 550px;
+}
+
+
+.quoteText h4, h4.widthHeight {
+  font-size: 1.4em;
+}
+
+.dollar {
+  font-size:2em;
+}

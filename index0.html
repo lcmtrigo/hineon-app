@@ -30,10 +30,39 @@
   <div id="bulb" class="switchdark"></div>
 
     <ul class="bxslider">
-      <li><div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/884977/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div></li>
-      <li><div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/8C773D/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div></li>
-      <li><div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/3C6288/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div></li>
-      <li><div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/245461/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div></li>
+
+      <li>
+      <div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/884977/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('http://via.placeholder.com/1366x768/000065/cccccc/?text=Outdoor+Outdoor+Outdoor+Outdoor+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/8C773D/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('http://via.placeholder.com/1366x768/345300/cccccc/?text=Outdoor+Outdoor+Outdoor+Outdoor+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/3C6288/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('http://via.placeholder.com/1366x768/820000/cccccc/?text=Outdoor+Outdoor+Outdoor+Outdoor+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/245461/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('http://via.placeholder.com/1366x768/660086/cccccc/?text=Outdoor+Outdoor+Outdoor+Outdoor+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
     </ul>
 
   </div> <!--end slide div-->
@@ -122,7 +151,7 @@
 
 <!-- !!!!!!!!!!!!!TEXT INPUT!!!!!!!!!!!!! -->
 
-<textarea id="clientText" cols="20" id="clientText" name="clientText" class="clientTextBase" rows="6" placeholder="START TYPING HERE!
+<textarea id="clientText" cols="27" id="clientText" name="clientText" class="clientTextBase" rows="6" placeholder="START TYPING HERE!
 &lpar;Max 6 lines&rpar;" autofocus></textarea>
 
 <!-- BACKDROP -->
@@ -210,7 +239,7 @@
 
     <div class="bubblepointer toText"></div>
       <i class="fa fa-question btnContentModalFAQ btnFaqText" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
   
     </div><!--close tabcontent-->
 
@@ -273,7 +302,7 @@
 
     <div class="bubblepointer toColor"></div>
       <i class="fa fa-question btnContentModalFAQ btnFaqColor" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
     </div><!--close tabcontent-->
 
     <div id="Shape" class="tabcontent">
@@ -317,7 +346,7 @@
 
     <div class="bubblepointer toShape"></div>
       <i class="fa fa-question btnContentModalFAQ btnFaqShape" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
     </div><!--close tabcontent-->
 
     <div id="Installation" class="tabcontent">
@@ -350,7 +379,7 @@
 
     <div class="bubblepointer toInstallation"></div>
       <i class="fa fa-question btnContentModalFAQ btnFaqInstallation" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
     </div><!--close tabcontent-->
 
     <div id="QtyShipping" class="tabcontent">
@@ -358,14 +387,43 @@
 
       <div class="tabsection infoText">
         <h3 class="contentHeader">QUANTITY &amp; SHIPPING</h3>
-        <p>Estimated delivery date is explained and maybe few more words</p>
+        <h4 class="widthHeight">SIZE W <span id="width"></span>" x H <span id="height"></span>"</h4>
+        <label for="qty">QUANTITY</label>
+        <input id="qty" type="number" name="orderQuantity" min="1">
       </div>
 
+      <div class="tabsection basicInfo">
+        <div class="ifield">
+          <label for="name">NAME</label>
+          <input id="name" type="text" name="fullName" size="42">
+        </div>
+        <div class="ifield">
+          <label for="basicEmail">EMAIL</label>
+          <input id="basicEmail" type="text" name="orderEmail" size="42">
+        </div>
+        <div class="ifield">
+          <label for="basicZipcode">ZIPCODE</label>
+          <input id="basicZipcode" type="text" name="orderZip">
+          <select id="basicCountry" list="countries" name="orderCountry">
+            <option value="Canada">Canada</option>
+            <option value="United States" selected>United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+            <option value="AUS/NZ">AUS/NZ</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tabsection comment">
+        <label for="comment">COMMENT</label>
+        <textarea id="comment" name="orderComment" rows="8" cols="45" placeholder="Feel free to leave us a comment!"></textarea>
+      </div>
     </div><!--close tabbox-->
 
     <div class="bubblepointer toQtyShipping"></div>
         <i class="fa fa-question btnContentModalFAQ btnFaqQtyShipping" aria-hidden="true"></i>
-        <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+        <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
     </div><!--close tabcontent-->
 
   </div><!--Closing Menu Tab-->
