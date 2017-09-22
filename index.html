@@ -157,8 +157,10 @@
           <label for="Right"><i class="fa fa-align-right" aria-hidden="true"></i></label>
         </div>
       </div>
+
+      <div class="bubblepointer toText"></div>
       <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span class="btnClose" onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
 
     <div id="Color" class="tabcontent">
@@ -170,11 +172,11 @@
       <div class="tabsection availColors">
         <h4>AVAILABLE COLORS</h4>
 
-        <div class="colorType">
+        <div class="colorType white">
           <strong><p class="colorHeader">COOL/WARM WHITE</p></strong>
           <p class="colorSummary">Two or three words summary</p>
           <input type="radio" id="Cool" name="chooseColor" value="whiteCool">
-          <label for="Cool"><img src="http://via.placeholder.com/40x40/fff/212121?text=+"></label>
+          <label for="Cool"><img src="http://via.placeholder.com/40x40/f5f5f5/212121?text=+"></label>
           <input type="radio" id="Warm" name="chooseColor" value="whiteWarm">
           <label for="Warm"><img src="http://via.placeholder.com/40x40/fff9b9/212121?text=+"></label>
         </div>
@@ -214,7 +216,7 @@
         </div>
       </div>
       <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span class="btnClose" onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
 
     <div id="Shape" class="tabcontent">
@@ -253,7 +255,7 @@
           <label for="CE"><img src="http://via.placeholder.com/120x90/?text=circle"></label>
       </div>
       <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span class="btnClose" onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
 
 
@@ -282,7 +284,7 @@
         </label>
       </div>
       <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span class="btnClose" onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
 
 
@@ -291,7 +293,7 @@
         <h3 class="contentHeader">Quantity and Shipping</h3>
         <h4>SIZE 00" x 00"</h4>
         <label for="qty">QUANTITY</label>
-        <input id="qty" type="number" name="orderQuantity">     
+        <input id="qty" type="number" name="orderQuantity" min="1">     
       </div>
 
       <div class="tabsection basicInfo">
@@ -324,7 +326,7 @@
         <textarea id="comment" name="orderComment" rows="8" cols="45">Type something</textarea>
       </div>
       <i class="fa fa-question btnContentModalFAQ" aria-hidden="true"></i>
-      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+      <span class="btnClose" onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
     </div>
   </div><!--Closing Menu Tab Content-->
 

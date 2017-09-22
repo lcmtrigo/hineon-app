@@ -380,8 +380,7 @@ ul.cta li:last-child {
 .availFonts, 
 .availColors, 
 .indoorOutdoor, 
-.availInstall, 
-.basicInfo {
+.availInstall {
   left:360px;
 }
 
@@ -391,8 +390,12 @@ ul.cta li:last-child {
 .availColors, .availInstall { width: 1000px; }
 .indoorOutdoor { width: 320px; }
 
-.comment { left: 720px; }
+.basicInfo {
+  width: 420px;
+  left: 290px;
+}
 
+.comment { left: 710px; }
 
 .sizeAlign {
   width: 150px;
@@ -466,11 +469,14 @@ input[type="radio"]:checked+label:not(.displayRadio) {
   outline: solid 2px #fc0065;
 }
 
+.availBackdrop label {
+  width: 120px;
+  height: 90px;
+}
+
 .displayRadio, 
 .qtyShipping label,
-.basicInfo label,
-.comment label
- {
+.comment label {
   text-align: left !important;
   border: none !important;
 }
@@ -479,6 +485,13 @@ input[type="radio"]:checked+label:not(.displayRadio) {
 .basicInfo label
 .comment label {
   line-height: 1.2em;
+}
+
+.basicInfo label {
+  display: inline-block;
+  border: none;
+  width: 75px;
+  text-align: right;
 }
 
 
@@ -513,6 +526,12 @@ todo: for font size and text align, change it so that it doesn't show a pink bor
   margin-left: 15px;
 }
 
+.white label, .pure label, .solid label {
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
 .indoorOutdoor input[type="radio"],
 .availInstall input[type="radio"] {
   display: inherit;
@@ -529,8 +548,18 @@ label.nailType {
   width: 280px;
 }
 
-#qty, #name, #basicEmail, #baiscZipcode, #comment {
+#qty, #name, #basicEmail, #basicZipcode, #basicCountry, #comment {
   margin-left: 20px;
+  padding: 5px;
+  border: solid 2px #ababab;
+}
+
+#name, #basicEmail {
+  width: 269px;
+}
+
+#basicCountry {
+  margin: 0;
 }
 
 .qtyLabel {
@@ -539,10 +568,27 @@ label.nailType {
   line-height: 0.1em !important;
 }
 
-.basicInfo {
-  width: 360px;
-}
+
 
 .ifield {
   margin-bottom: 20px;
+}
+
+.toText {
+  left: 85px;
+}
+
+.bubblepointer {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #fff;
+  position: absolute;
+  top: 190px;
+}
+
+textarea {
+  height: 106px;
+  resize: none;
 }

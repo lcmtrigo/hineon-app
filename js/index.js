@@ -73,6 +73,6 @@ function openMenu(evt, menuName) {
 }
 
 // todo: remove bottom border when tabcontent is closed
-// function menuClose() {
-//   document.getElementById("menu").style.display='none';
-//
+$('.btnClose').on('click', function(){
+  $('.menu').removeClass('active');
+});
