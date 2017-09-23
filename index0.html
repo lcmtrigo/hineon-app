@@ -151,8 +151,8 @@
 
 <!-- !!!!!!!!!!!!!TEXT INPUT!!!!!!!!!!!!! -->
 
-<textarea id="clientText" cols="27" id="clientText" name="clientText" class="clientTextBase" rows="6" placeholder="START TYPING HERE!
-&lpar;Max 6 lines&rpar;" autofocus></textarea>
+<textarea id="clientText" cols="20" id="clientText" name="clientText" class="clientTextBase" rows="6" placeholder="START TYPING HERE!
+&lpar;Max 6 lines, but please no dots!&rpar;" autofocus></textarea>
 
 <!-- BACKDROP -->
 
@@ -226,9 +226,9 @@
         </div>
 
         <div class="fontAlign">
-          <input type="radio" id="Left" name="chooseFontAlign" value="alignLeft" checked>
+          <input type="radio" id="Left" name="chooseFontAlign" value="alignLeft">
           <label for="Left"><i class="fa fa-align-left" aria-hidden="true"></i></label>
-          <input type="radio" id="Center" name="chooseFontAlign" value="alignCenter">
+          <input type="radio" id="Center" name="chooseFontAlign" value="alignCenter" checked>
           <label for="Center"><i class="fa fa-align-center" aria-hidden="true"></i></label>
           <input type="radio" id="Right" name="chooseFontAlign" value="alignRight">
           <label for="Right"><i class="fa fa-align-right" aria-hidden="true"></i></label>
@@ -332,10 +332,10 @@
       </div>
 
       <div class="tabsection availShapes">
-        <input type="radio" id="square" name="chooseShape" value="square" checked>
-          <label for="square"><img src="http://via.placeholder.com/100x100"></label>
         <input type="radio" id="rectangle" name="chooseShape" value="rectangle">
           <label for="rectangle"><img src="http://via.placeholder.com/100x100"></label>
+        <input type="radio" id="square" name="chooseShape" value="square">
+          <label for="square"><img src="http://via.placeholder.com/100x100"></label>
         <input type="radio" id="circle" name="chooseShape" value="circle">
           <label for="circle"><img src="http://via.placeholder.com/100x100"></label>
         <input type="radio" id="outline" name="chooseShape" value="outline">
