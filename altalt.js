@@ -10,8 +10,8 @@ function Shaper() {
           $("#backdrop").height(backdropWidth);
           $("#backdrop").width(backdropWidth);
 
-          $("#backdrop").addClass('backdropCircle');
-          $("#backdrop").removeClass('backdropSquare backdropRectangle backdropOutline metal');
+          $("#backdrop").addClass('backdropSquare backdropCircle');
+          $("#backdrop").removeClass('backdropRectangle backdropOutline metal');
        } else if (Shapechoice=='square'&&Usechoice=='indoor') {
           $("#backdrop").height(backdropWidth);
           $("#backdrop").width(backdropWidth);
@@ -37,8 +37,8 @@ function Shaper() {
           $("#backdrop").height(backdropWidth);
           $("#backdrop").width(backdropWidth);
 
-          $("#backdrop").addClass('backdropCircle metal');
-          $("#backdrop").removeClass('backdropSquare backdropRectangle backdropOutline');
+          $("#backdrop").addClass('backdropSquare backdropCircle metal');
+          $("#backdrop").removeClass('backdropRectangle backdropOutline');
 
        } else if (Shapechoice=='square'&&Usechoice=='outdoor') {
           $("#backdrop").height(backdropWidth);
@@ -52,6 +52,11 @@ function Shaper() {
 
           $("#backdrop").addClass('backdropRectangle metal');
           $("#backdrop").removeClass('backdropCircle backdropSquare backdropOutline');
+       } else if (Shapechoice=='outline'&&Usechoice=='outdoor') {
+          $("#backdrop").height('auto');
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").removeClass('backdropCircle backdropSquare backdropOutline backdropRectangle metal');
        } else {
         
        };
@@ -88,6 +93,13 @@ $(document).ready(function()
     var data = $('#clientText').val()
     $('#backdrop').html(data.replace(/\n/g,"<br />"));
   });
+
+  $(document).delegate("#clientText", "keyup", function(event){
+      if(event.which === 190) {
+          var cleanedValue = $(this).val().replace(".",",");
+          $(this).val(cleanedValue);
+      }
+    });
 
   var WindowWidth = $(window).width();
   var containerWidth = $(".modal").width();  
@@ -176,6 +188,7 @@ $(document).ready(function()
     $(".backdrop").css("font-family", textareaFont);
 
     Shaper();
+    Positioner();
        
 
     }); /*fonts end*/
@@ -344,9 +357,12 @@ $('input[name=chooseIndoorOutdoor]:radio').on('change', function() {
        if (Usechoice=='outdoor') {
           $("#outline").attr("disabled",true);
           $(".outdoorSlider").css('display','block');
+          $("#backdrop").addClass("metal");
+          $("#backdrop").removeClass("backdropOutline");
        } else if (Usechoice=='indoor'){
         $("#outline").attr("disabled",false);
         $(".outdoorSlider").css('display','none');
+        $("#backdrop").removeClass("metal");
        } else {
         alert('Please select your environment settings!');
        };
@@ -438,30 +454,30 @@ function socialmediatoggle(){
     }
 
 function modalemailtoggle(){
-      $('#email').slideToggle(200);
+      $('#email').fadeToggle(200);
     }
 
 
 /* tool tips */
 
 $('.btnFaqText').on('click', function(){
-    $('#faqText').slideToggle(200);
+    $('#faqText').fadeToggle(200);
 });
 
 $('.btnFaqColor').on('click', function(){
-    $('#faqColor').slideToggle(200);
+    $('#faqColor').fadeToggle(200);
 });
 
 $('.btnFaqShape').on('click', function(){
-    $('#faqShape').slideToggle(200);
+    $('#faqShape').fadeToggle(200);
 });
 
 $('.btnFaqInstallation').on('click', function(){
-    $('#faqInstallation').slideToggle(200);
+    $('#faqInstallation').fadeToggle(200);
 });
 
 $('.btnFaqQtyShipping').on('click', function(){
-    $('#faqQtyShipping').slideToggle(200);
+    $('#faqQtyShipping').fadeToggle(200);
 });
 
 

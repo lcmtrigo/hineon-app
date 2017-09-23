@@ -240,10 +240,6 @@ text-shadow: 2px 2px 5px rgba(50, 10, 40, 0.5), 5px 10px 10px rgba(30, 5, 20, 0.
 /*shape*/
 
 .backdropCircle{
-overflow:hidden;
-background: #fff;
-opacity: .25;
-padding: 50px;
 border-radius: 50%;
 }
 
