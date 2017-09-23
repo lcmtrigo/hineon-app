@@ -1,3 +1,85 @@
+function Shaper() {
+       
+       var Shapechoice = $('input[name=chooseShape]:checked').val();
+       var Usechoice = $('input[name=chooseIndoorOutdoor]:checked').val();
+
+       var backdropWidth = $('#clientText').width();
+       var backdropHeight = $('#clientText').height();
+
+       if (Shapechoice=='circle'&&Usechoice=='indoor') {
+          $("#backdrop").height(backdropWidth);
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").addClass('backdropCircle');
+          $("#backdrop").removeClass('backdropSquare backdropRectangle backdropOutline metal');
+       } else if (Shapechoice=='square'&&Usechoice=='indoor') {
+          $("#backdrop").height(backdropWidth);
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").addClass('backdropSquare');
+          $("#backdrop").removeClass('backdropCircle backdropRectangle backdropOutline metal');
+
+       } else if (Shapechoice=='rectangle'&&Usechoice=='indoor') {
+          $("#backdrop").height('auto');
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").addClass('backdropRectangle');
+          $("#backdrop").removeClass('backdropCircle backdropSquare  backdropOutline metal');
+       } else if (Shapechoice=='outline'&&Usechoice=='indoor') {
+          $("#backdrop").height('auto');
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").addClass('backdropOutline');
+          $("#backdrop").removeClass('backdropCircle backdropSquare backdropRectangle metal');
+
+
+       } else if (Shapechoice=='circle'&&Usechoice=='outdoor') {
+          $("#backdrop").height(backdropWidth);
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").addClass('backdropCircle metal');
+          $("#backdrop").removeClass('backdropSquare backdropRectangle backdropOutline');
+
+       } else if (Shapechoice=='square'&&Usechoice=='outdoor') {
+          $("#backdrop").height(backdropWidth);
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").addClass('backdropSquare metal');
+          $("#backdrop").removeClass('backdropCircle backdropRectangle backdropOutline');
+       } else if (Shapechoice=='rectangle'&&Usechoice=='outdoor') {
+          $("#backdrop").height('auto');
+          $("#backdrop").width(backdropWidth);
+
+          $("#backdrop").addClass('backdropRectangle metal');
+          $("#backdrop").removeClass('backdropCircle backdropSquare backdropOutline');
+       } else {
+        
+       };
+
+}
+
+function Positioner() {
+  
+  var frameWidth = $("#webapp").width();
+  var frameHeight = $("#webapp").height();
+  
+  var textareaWidth = $(".clientTextBase").width();
+  var textareaHeight = $(".clientTextBase").height();
+
+  var textareaTop = (frameHeight-textareaHeight-150)/2;
+  var textareaLeft = (frameWidth-textareaWidth-50)/2;
+
+  $("#clientText").css('top',textareaTop);
+  $("#clientText").css('margin-left',textareaLeft);
+  $(".backdrop").css('top',textareaTop);
+  $(".backdrop").css('margin-left',textareaLeft);
+
+//Need to position Circle!!
+
+}
+
+
+
 
 $(document).ready(function() 
 	{
@@ -26,17 +108,13 @@ $(document).ready(function()
   $(".backdrop").css("font-size", textareaFontSize);
   $(".backdrop").css("line-height", textareaFontHeight);
 
-  var textareaWidth = $("#clientText").width();
-  var textareaHeight = $("#clientText").height();
+  var textareaWidth = $(".clientTextBase").width();
+  var textareaHeight = $(".clientTextBase").height();
 
   $(".backdrop").width(textareaWidth);
-  $(".backdrop").height(textareaHeight);
+  $(".backdrop").height('auto');
 
-  var textareaTop = (frameHeight-textareaHeight-150)/2;
-  var textareaLeft = (frameWidth-textareaWidth)/2;
-
-  $("#clientText").css('top',textareaTop);
-  $("#clientText").css('margin-left',textareaLeft);
+  Positioner();
 
 /*pink line*/
   $('.btnMenuDie').on('click', function(){
@@ -97,6 +175,9 @@ $(document).ready(function()
    var textareaFont = $("#clientText").css("font-family");
     $(".backdrop").css("font-family", textareaFont);
 
+    Shaper();
+       
+
     }); /*fonts end*/
 
 /* font size */
@@ -122,6 +203,10 @@ $('input[name=chooseFontSize]:radio').on('change', function() {
     $(".backdrop").css("font-size", textareaFontSize);
     $(".backdrop").css("line-height", textareaFontHeight);
 
+    Shaper();
+    Positioner();
+
+
 });
 
 
@@ -146,6 +231,8 @@ $('input[name=chooseFontAlign]:radio').on('change', function() {
 
    var textareaAlign = $("#clientText").css("text-align");
     $(".backdrop").css("text-align", textareaAlign);
+
+    Positioner();
 
 });
 
@@ -268,35 +355,10 @@ $('input[name=chooseIndoorOutdoor]:radio').on('change', function() {
 
 
 /* shape */
-$('input[name=chooseShape]:radio').on('change', function() {
-       
-       var Shapechoice = $('input[name=chooseShape]:checked').val();
-       var Usechoice = $('input[name=chooseIndoorOutdoor]:checked').val();
+$('input[name=chooseShape]:radio').on('change', function(){
 
-       if (Shapechoice=='circle'&&Usechoice=='indoor') {
-          $("#backdrop").addClass('backdropCircle');
-          $("#backdrop").removeClass('backdropSquare backdropRectangle backdropOutline backdropCircleMetal backdropSquareMetal backdropRectangleMetal');
-       } else if (Shapechoice=='square'&&Usechoice=='indoor') {
-          $("#backdrop").addClass('backdropSquare');
-          $("#backdrop").removeClass('backdropCircle backdropRectangle backdropOutline backdropCircleMetal backdropSquareMetal backdropRectangleMetal');
-       } else if (Shapechoice=='rectangle'&&Usechoice=='indoor') {
-          $("#backdrop").addClass('backdropRectangle');
-          $("#backdrop").removeClass('backdropCircle backdropSquare  backdropOutline backdropCircleMetal backdropSquareMetal backdropRectangleMetal');
-       } else if (Shapechoice=='outline'&&Usechoice=='indoor') {
-          $("#backdrop").addClass('backdropOutline');
-          $("#backdrop").removeClass('backdropCircle backdropSquare backdropRectangle  backdropCircleMetal backdropSquareMetal backdropRectangleMetal');
-       } else if (Shapechoice=='circle'&&Usechoice=='outdoor') {
-          $("#backdrop").addClass('backdropCircleMetal');
-          $("#backdrop").removeClass('backdropCircle backdropSquare backdropRectangle backdropOutline  backdropSquareMetal backdropRectangleMetal');
-       } else if (Shapechoice=='square'&&Usechoice=='outdoor') {
-          $("#backdrop").addClass('backdropSquareMetal');
-          $("#backdrop").removeClass('backdropCircle backdropSquare backdropRectangle backdropOutline backdropCircleMetal  backdropRectangleMetal');
-       } else if (Shapechoice=='rectangle'&&Usechoice=='outdoor') {
-          $("#backdrop").addClass('backdropRectangleMetal');
-          $("#backdrop").removeClass('backdropCircle backdropSquare backdropRectangle backdropOutline backdropCircleMetal backdropSquareMetal');
-       } else {
-        alert('Please select your backdrop!');
-       };
+Shaper();
+Positioner();
 
 });
 
@@ -333,6 +395,7 @@ $(window).on('resize',function() {
   $(".backdrop").css("font-size", textareaFontSize);
   $(".backdrop").css("line-height", textareaFontHeight);
 
+  Positioner();
 
 }); /*Window Resize close*/
 
