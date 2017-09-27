@@ -1,78 +1,54 @@
+$.global = new Object();
+
+$.global.item = 1;
+$.global.total = 0;
 
 $(document).ready(function() 
 	{
-  
-  var WindowWidth = $(window).width();
-  var containerWidth = $(".modal").width();  
-  var leftMargin = (WindowWidth-containerWidth)/2-30;  //padding30
-  
-  $(".modal").css("marginLeft", leftMargin); 
+	
+	var WindowWidth = $(window).width();
+	var SlideCount = $('#slides li').length;
+	var SlidesWidth = SlideCount * WindowWidth;
+	
+   $.global.item = 0;
+    $.global.total = SlideCount; 
+    
+	$('.slide').css('width',WindowWidth+'px');
+	$('#slides').css('width',SlidesWidth+'px');
 
-  var frameWidth = $("#webapp").width();
-  var tabWidth = frameWidth-75;
-  $(".tabcontent").width(tabWidth);
+   $("#slides li:nth-child(1)").addClass('alive');
+    
+  $('#left').click(function() { Slide('back'); }); 
+  $('#right').click(function() { Slide('forward'); }); 
+        
+  });
 
-});
+function Slide(direction)
+	{
+   
+    if (direction == 'back') { var $target = $.global.item - 1; }
+    if (direction == 'forward') { var $target = $.global.item + 1; }  
+    
+    if ($target == -1) { DoIt($.global.total-1); } 
+    else if ($target == $.global.total) { DoIt(0); }  
+    else { DoIt($target); }
+    
+    
+	}
 
-$(window).on('resize',function() {
-
-  var WindowWidth = $(window).width();
-  var containerWidth = $(".modal").width();  
-  var leftMargin = (WindowWidth-containerWidth)/2-30;  //padding30
-  
-  $(".modal").css("marginLeft", leftMargin); 
-
-  var frameWidth = $("#webapp").width();
-  var tabWidth = frameWidth-75;
-  $(".tabcontent").width(tabWidth);
-
-});
-
-
-
-function switching(){
-    $('div#bulb').toggle(100);
-    }
-
-function socialmediatoggle(){
-      $('.hiddenbutton ul').css({
-        'width': 200,
-        'height': $('.hiddenbutton ul').height()
-      });
-      $('.hiddenbutton').animate({'width': 'toggle'});
-    }
-
-
-function modalemailtoggle(){
-      $('#email').slideToggle(200);
-    }
-
-
-
-/*** bottom menu ***/
-
-function openMenu(evt, menuName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
-
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+function DoIt(target)
+  {
+   
+    var $windowwidth = $(window).width();
+	var $margin = $windowwidth * target; 
+    var $actualtarget = target+1;
+    
+    $("#slides li:nth-child("+$actualtarget+")").addClass('alive');
+    
+    $('#slides').css('transform','translate3d(-'+$margin+'px,0px,0px)');	
+    
+    $.global.item = target; 
+    
+  $('#count').html($.global.item+1);
+    
   }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(menuName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-// todo: remove bottom border when tabcontent is closed
-$('.btnClose').on('click', function(){
-  $('.menu').removeClass('active');
-});

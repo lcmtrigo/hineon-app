@@ -1,0 +1,1054 @@
+/*16:10 aspect ratio resolutions: - 1280×800
+6:9 aspect ratio resolutions: 1024×576, 1152×648, 1280×720*/
+@charset "UTF-8";
+
+	.xsshow {
+		display:none;
+	}
+
+@media (max-width: 1280px){
+
+.tabcontent {
+	bottom:105px;
+}
+
+	.menu {
+		font-size: 0.9em;
+		max-width: 140px;
+		padding: 10px;
+		padding-top:15px;
+	}
+
+	.tabbox {
+		font-size: 0.85em;
+	}
+
+	.infoText {
+    width: 260px;
+	}
+
+	.availFonts, .availColors, .indoorOutdoor, .availNails {
+    left: 300px;
+    width: 710px;
+	}
+
+	.availColors {
+    width: 850px;
+	}
+
+	.availShapes {
+		left: 610px;
+	}
+
+	.sizeAlign{
+	top: 46px;
+    left: 1034px;
+    width: 150px;
+	}
+
+	.sizeAlign label i {
+    margin: 5px 3px 0px 2px;
+    padding: 4px 4px;
+	}
+
+	.colorType label img {
+    width: 40px;
+    height: 40px;
+	}
+
+	.colorType {
+		width: 200px;
+	}
+
+	.pure {
+		width: 250px;
+	}
+
+	.solid {
+		width:330px;
+	}
+
+	label.displayRadio:last-child {
+    margin-right: 0;
+	}
+
+	.basicInfo {
+		left: 220px;
+	}
+
+	.comment {
+		left: 620px;
+	}
+
+	#qty, #name, #basicEmail, #basicZipcode, #basicCountry, #comment {
+		font-size: 1.1em;
+	}
+
+	.widthHeight{
+		margin-bottom: 15px;
+	}
+
+	.toText{
+		left:76px;
+	}
+
+	.toColor{
+		left:241px;
+	}
+
+	.toShape {
+		left: 404px;
+	}
+
+	.toInstallation {
+		left:568px;
+	}
+
+	.toQtyShipping{
+		left:731px;
+	}
+
+	.toGetQuote {
+		right: 239px;
+	}
+
+	.toPurchase {
+		right: 75px;
+	}
+
+}
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+
+	.menu {
+	max-width: 118px;
+	padding: 15px 5px 10px 5px;
+	}
+
+	.mobilehide {
+		display:none;
+	}
+
+	.availFonts, .availColors, .indoorOutdoor, .availNails {
+		left: 10px;
+	}
+
+	.sizeAlign {
+		left: 740px;
+		top: 52px;
+	}
+
+	.availShapes {
+		top: 48px;
+		left: 310px;
+	}
+
+	#qty, #name, #basicEmail, #basicZipcode, #basicCountry, #comment {
+		max-width: 200px;
+		margin-left: 10px;
+	}
+
+	#qty {
+		max-width: 70px;
+	}
+
+	.basicInfo {
+		left: 200px;
+	}
+
+	#basicZipcode {
+	    max-width: 65px;
+	}
+
+	#basicCountry {
+		max-width: 127px;
+	}
+
+	#comment {
+		max-width: 240px;
+	}
+
+	.comment {
+		left:520px;
+		max-width:350px;
+	}
+
+	.toText{
+		left:65px;
+	}
+
+	.toColor{
+		left:207px;
+	}
+
+	.toShape {
+		left: 350px;
+	}
+
+	.toInstallation {
+		left:490px;
+	}
+
+	.toQtyShipping{
+		left:633px;
+	}
+
+	.toGetQuote {
+		right: 205px;
+	}
+
+	.toPurchase {
+		right: 65px;
+	}
+
+	.tabsection h4 {
+		color: #4a00a3;
+		font-size: 1.15em;
+	}
+
+	.quoteText h4, h4.widthHeight {
+	  font-size: 1.4em;
+	  color: #333;
+	}
+
+
+}
+
+
+
+
+@media (max-width: 1024px) and (orientation:portrait){
+	
+	.mobilehide {
+		display:none;
+	}
+
+	.bx-wrapper .bx-controls-direction a {
+		top: 40%;
+	}
+
+	.button {
+		width: 60px;
+		height: 60px;
+		font-size: 3em;
+	}
+
+	.btnSwitch, .btnFAQ {
+		line-height: 1em;
+	}
+
+	.btnShare {
+		font-size: 2em;
+		top: 105px;
+	}
+
+	.btnMail {
+		font-size: 1.8em;
+		top: 185px;
+	}
+
+	#credit {
+		font-size: 1.5em;
+		padding-top:30px;
+	}
+	
+	.bx-wrapper .bx-pager.bx-default-pager {
+    	top: 55px;
+	}
+
+	.bx-wrapper .bx-pager.bx-default-pager a {
+	    width: 24px;
+	    height: 24px;
+	    border-radius: 12px;
+	}
+
+	.hiddenbutton {
+		top: 88px;
+		right: 105px;
+		width: 270px;
+	}
+
+	.hiddenbutton ul li {
+	  display:inline;
+	  margin: 35px;
+	}
+
+	.hiddenbutton li:last-child {
+	  margin-right: 10px;
+	}
+
+	.btnFacebook, .btnTwitter, .btnInsta {
+		font-size: 2em;
+	}
+
+	ul.bottomnav {
+		bottom: 150px;
+	}
+
+	.menu {
+	    max-width: 300px;
+	    height: 100px;
+	    padding: 15px 5px 10px 5px;
+	    margin: 8px;
+	    font-size: 1.5em;
+	}
+
+	.menuGetQuote, .menuCheckout {
+		height: 80px;
+		width: 420px;
+		max-width: 500px;
+	}
+
+	ul.cta {
+		right: 65px;
+	}
+
+	.tabcontent {
+		bottom: 305px;
+	}
+
+	.tabbox {
+		bottom: 10px;
+   		height: 250px;
+	}
+
+	.btnContentClose, .btnContentModalFAQ {
+		font-size: 1.5em;
+	    width: 25px;
+	    height: 25px;
+	    padding: 10px;
+	}
+
+	.tabcontent .btnContentClose, .tabcontent .btnContentModalFAQ {
+		top: -55px;
+		
+	}
+
+	.btnContentModalFAQ {
+		right: 100px;
+	}
+
+	.tabsection {
+		max-height: 200px;
+		font-size: 1.5em;
+	}
+
+	.sizeAlign {
+		top: 71px;
+		left: 950px;
+		width: 200px;
+	}
+
+	.availFonts {
+		width: 920px;
+	}
+
+	.availFonts label img {
+	    width: 220px;
+	    height: 60px;
+	}
+
+	.sizeAlign label img {
+		height: 60px;
+	}
+
+	.sizeAlign label i {
+		font-size: 2.3em;
+		margin: 5px 3px 0px 2px;
+	}
+
+	.colorType {
+		width:300px;
+		height: 140px;
+	}
+
+	.colorType label img {
+		width: 60px;
+		height: 60px;
+	}
+
+	.pure {
+		width: 360px;
+	}
+
+	.solid {
+		width: 470px;
+	}
+
+	.availColors {
+		width: 1170px;
+	}
+
+	.indoorOutdoor input[type="radio"], .availNails input[type="radio"] {
+    width: 30px;
+    height: 30px;
+	}
+
+	label.displayRadio {
+    margin-right: 50px;
+	}
+
+	.availShapes {
+		top: 70px;
+		left: 480px;
+		width: 520px;
+	}
+
+	.availShapes label img {
+	    padding-bottom: 0;
+	    width: 120px;
+	    height: 120px;
+	}
+
+	.availNails {
+		width: 930px;
+	}
+
+	.availNails p {
+		max-width: 390px;
+	}
+
+	.ifield {
+    	margin-bottom: 15px;
+	}
+
+	.basicInfo {
+	    left: 320px;
+	    top: 50px;
+	    height: 150px;
+	    width: 450px;
+	}
+
+	.basicInfo label {
+		width: 90px;
+	}
+
+	#qty, #name, #basicEmail, #basicZipcode, #basicCountry, #comment {
+    	max-width: 300px;
+	}
+
+	#qty {
+		max-width: 100px;
+	}
+
+	#basicZipcode {
+    	max-width: 100px;
+	}
+
+	#basicCountry {
+	    max-width: 185px;
+	    width: 185px;
+	    height: auto;
+	}
+
+	.comment {
+		left: 800px;
+		top: 48px;
+		max-width: 500px;
+	}
+
+	#comment {
+		max-width: 450px;
+		max-height: 100px;
+		margin-left: 0;
+		margin-top: 10px;
+	}
+
+	#GetQuote .btnContentClose, #Purchase .btnContentClose {
+		top: 15px;
+	}
+
+	#GetQuote.tabcontent, #Purchase.tabcontent{
+		bottom: 377px;
+	}
+
+	.quoteTabbox {
+		width: 450px;
+		height: 250px;
+	}
+	
+	.quoteTabbox .tabsection {
+	    max-width: 450px;
+	}
+
+	.quoteText {
+		width:420px;
+		margin: auto;
+	}
+
+		.toText{
+		left:65px;
+	}
+
+	.toColor{
+		left:207px;
+	}
+
+	.toShape {
+		left: 350px;
+	}
+
+	.toInstallation {
+		left:490px;
+	}
+
+	.toQtyShipping{
+		left:633px;
+	}
+
+	.toGetQuote, .toPurchase {
+		display: none;
+	}
+
+}
+
+
+
+
+
+
+@media (max-width: 768px){
+
+	.xshide {
+		display:none;
+	}
+
+	.xsshow {
+		display:block;
+	}
+
+	.menu {
+		max-width: 119px;
+	    height: 60px;
+	    padding: 15px 5px 10px 5px;
+	    margin: 3px;
+	    font-size: 1.5em;
+	}
+
+	.menuGetQuote, .menuCheckout {
+	    height: 60px;
+	    width: 300px;
+	    max-width: 300px;
+	}
+
+	ul.bottomnav {
+		margin: 0;
+		bottom: 120px;
+	}
+
+	ul.cta {
+		margin-top: 0;
+		bottom: 20px;
+	}
+
+	.tabcontent {
+		bottom: 200px;
+	}
+
+	.toText, .toColor, .toShape, .toInstallation, .toQtyShipping {
+		display:none;
+	}
+
+	.tabbox {
+		height: 180px;
+	}
+
+	.tabcontent .btnContentClose, .tabcontent .btnContentModalFAQ {
+    	top: 10px;
+	}
+
+	.tabsection {
+		max-height: 200px;
+		font-size: 1.1em;
+	}
+
+	.availFonts {
+		width: 700px;
+	}
+
+	.availFonts label img {
+		width: 160px;
+		height: 40px;
+	}
+
+	.sizeAlign label img {
+		width: 50px;
+		height: 50px;
+	}
+
+	.availColors {
+		width: 1040px;
+	}
+
+	.sizeAlign {
+		left: 730px;
+		width: 370px;
+	}
+
+	.third {
+		margin-right: 30px !important;
+	}
+
+	.colorType {
+		width: 170px;
+		height: 100px;
+	}
+
+	.pure {
+		width: 360px;
+	}
+
+	.solid {
+		width: 470px;
+	}
+
+	p.colorSummary {
+		display:none;
+	}
+
+	p.colorHeader {
+		width: 500px;
+		margin-bottom: 10px;
+	}
+
+	.tabsection h4 {
+		margin-bottom: 15px;
+	}
+
+	.indoorOutdoor label {
+		width: 160px;
+	}
+
+	.availShapes {
+		left: 550px;
+		top:55px;
+		width: 440px;
+	}
+
+	.availShapes label img {
+		width: 90px;
+		height: 90px;
+	}
+
+	.availShapes label {
+		margin-right: 15px;
+	}
+
+	.availNails p {
+		max-width: 400px;
+	}
+
+	.availNails {
+		width: 950px;
+	}
+
+	h3.contentHeader {
+		margin-bottom: 15px;
+	}
+
+	.why {
+		position: absolute;
+	    top: 11px;
+	    left: 500px;
+	}
+
+	.basicInfo {
+		height: 90px;
+		width: 900px;
+	}
+
+	#basicZipcode {
+		max-width:200px;
+		width: 200px;
+		margin-bottom: 15px;
+	}
+
+	#basicCountry {
+		width: 309px;
+		max-width: 309px;
+	}
+
+	.comment {
+		left: 1200px;
+	}
+
+	#comment {
+		max-height: 80px;
+		margin-top: 0;
+	}
+
+	.quoteTabbox .tabsection {
+		max-height: 200px;
+	}
+
+	#GetQuote.tabcontent, #Purchase.tabcontent {
+    bottom: 320px;
+	}
+
+	.modal {
+		font-size: 1.2em;
+	}
+
+	#faqText, #faqColor, #faqShape, #faqInstallation, #faqQtyShipping {
+    width: 500px;
+	}
+
+	.modal input {
+		font-size: 1.1em;
+	}
+
+	#modalemail {
+		width: 230px;
+	}
+
+}
+
+
+
+
+
+@media (max-width: 576px){
+
+	.xxshide {
+		display: none;
+	}
+
+	#email {
+		width: 400px;
+	}
+
+	#modalname {
+		width: 300px;
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
+
+	#modalemail {
+		width: 300px;
+		margin-bottom: 15px;
+	}
+
+	#subscribe {
+	    position: relative;
+	    top: 5px;
+	    width: 25px;
+	    height: 25px;
+	    margin-bottom: 0;
+	}	
+
+	ul.cta {
+		padding: 0;
+		bottom: 0;
+		right: 20px;
+	}
+
+	ul.cta li {
+		margin: 0;
+	}
+
+
+	ul.bottomnav {
+		bottom: 75px;
+		left: 12px;
+	}
+
+	ul.bottomnav li{
+		margin: 0px;
+	}
+
+	.menu {
+		    max-width: 17%;
+		    height: 50px;
+		    padding: 15px 5px 10px 5px;
+		    margin: 3px;
+		    font-size:1.2em;
+	}
+
+	.menuGetQuote, .menuCheckout {
+		width: 160px;
+		max-width: 160px;
+		height: 40px;
+		padding: 8px 5px 3px 5px;
+	}
+
+	.button {
+		font-size: 1.5em;
+   	 	width: 35px;
+    	height: 35px;
+	}
+
+	.btnShare, .btnMail {
+		font-size: 1.3em;
+	}
+
+	.btnShare {
+		top: 75px;
+	}
+
+	.btnMail {
+		top: 125px;
+	}
+
+	.hiddenbutton {
+		top: 59px;
+		right: 75px;
+		width: 200px;
+	}
+
+	.hiddenbutton ul li {
+		margin: 25px;
+	}
+
+	.hiddenbutton li:last-child {
+  		margin-right: 0px;
+	}
+
+	#credit {
+		font-size: 0.8em;
+		width: 300px;
+	}
+
+	.bx-wrapper .bx-pager.bx-default-pager {
+   	 	top: 35px;
+	}
+
+	.bx-wrapper .bx-pager.bx-default-pager a {
+    	width: 15px;
+    	height: 15px;
+	}
+
+	.clientTextBase {
+		font-size: 1.1em;
+	}
+
+	.size-small {
+		font-size: 1.1em;
+	}
+
+	.size-medium {
+		font-size: 1.6em;
+	}
+
+	.size-large {
+		font-size: 2em;
+	}
+
+	.tabcontent {
+		bottom: 120px;
+		height: 150px;
+	}
+
+	.tabbox {
+		max-height: 150px;
+	}
+
+	.tabsection {
+		max-height: 100px;
+	}
+
+	.btnContentClose, .btnContentModalFAQ {
+	    font-size: 1.2em;
+	    width: 15px;
+	    height: 15px;
+	    padding: 8px;
+	    line-height: 0.8em;
+	}
+
+	.tabcontent .btnContentClose, .tabcontent .btnContentModalFAQ {
+	    font-size: 1.2em;
+	    width: 15px;
+	    height: 15px;
+	    top: -12px;
+	}
+
+	.tabcontent .btnContentModalFAQ {
+		right: 75px;
+	}
+
+	.availFonts label img {
+		width: 220px;
+		height: 60px;
+	}
+
+	.availFonts {
+		height: 90px;
+		width: 1830px;
+	}
+
+	.sizeAlign {
+		left: 1850px;
+		top: 48px;
+		width: 400px;
+	}
+
+	.sizeAlign label img {
+		width: 60px;
+		height: 60px;
+	}
+
+	.sizeAlign label img {
+		font-size: 3em;
+	}
+
+	.colorType label img {
+		height: 40px;
+	}
+
+	.colorType {
+		height: 65px;
+	}
+
+	.indoorOutdoor label {
+    width: 100px;
+	}
+
+	.indoorOutdoor input[type="radio"], .availNails input[type="radio"] {
+    width: 20px;
+    height: 20px;
+	}
+
+	.availShapes {
+		top: 48px;
+		left: 400px;
+		width: 360px;
+	}
+
+	.availShapes label img {
+		width: 70px;
+		height: 70px;
+	}
+
+	.availNails p {
+		max-width: 230px;
+	}
+
+	.availNails {
+		width: 600px;
+	}
+
+	h4.widthHeight {
+		font-size:1.7em;
+	}
+
+	#QtyShipping.tabcontent {
+		max-height: 420px;
+		height: 420px;
+	}
+
+	#QtyShipping.tabcontent .tabbox {
+		max-height: 420px;
+		height: 420px;
+	}
+
+	#QtyShipping.tabcontent .tabbox .tabsection{
+		max-height: 450px;
+		height: 500px;
+	}
+
+	#QtyShipping.tabcontent .tabbox .tabsection.basicInfo {
+		left: 0;
+		top: 140px;
+		width: 290px;
+		height: 180px;
+		margin-right: 0;
+	}
+
+	.why {
+		position: relative;
+		top: -2px;
+		left: 0;
+		width: 290px;
+		margin-right: 0;
+	}
+
+	#QtyShipping.tabcontent .tabbox .tabsection.infoText{
+		max-height:120px;
+	}
+
+	#QtyShipping.tabcontent .tabbox .tabsection.comment {
+		left: 0;
+		top: 320px;
+		max-width: 270px;
+    	margin-left: 10px;
+    	height: 60px;
+    	width: 290px;
+    	margin-right: 0;
+	}
+
+	#name, #basicEmail, #basicZipcode, #basicCountry, #comment {
+		max-width:180px;
+	}
+
+	#basicCountry {
+		margin-left: 95px;
+		width: 200px;
+	    max-width: 194px;
+	}
+
+	.basicInfo label {
+		text-align: right;
+		width: 80px;
+	}
+
+	#comment {
+		width: 260px;
+		max-width: 260px;
+		height: 50px;
+		max-height: 50px;
+		margin-left: 10px;
+	}
+
+
+	.modal {
+		font-size: 1em;
+		padding: 10px;
+		top: 10%;
+	}
+
+	#faqText, #faqColor, #faqShape, #faqInstallation, #faqQtyShipping {
+		max-width:250px;
+		width: 250px;
+	}
+
+	#email {
+		max-width: 250px;
+		width: 250px;
+	}
+
+	#modalname {
+		width: 220px;
+		margin-top: 10px;
+	}
+
+	#modalemail {
+		width: 220px;
+		margin-top: 10px;
+	}
+
+	#subscribe {
+		margin-top: 10px;
+	}
+
+	.bx-wrapper .bx-controls-direction a {
+	    display:none;
+	}
+
+	.clientTextBase, .backdrop {
+		margin-top: 20px;
+	}
+
+	.quoteTabbox {
+		width: 300px;
+ 	   height: 200px;
+	}
+
+	.quoteText p{
+		width: 300px;
+	}
+}
