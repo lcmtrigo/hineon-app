@@ -248,53 +248,55 @@
 
       <div class="tabsection infoText">
         <h3 class="contentHeader">COLOR OPTIONS</h3>
-        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh</p>
+
+        <p><span style="padding-right: 8px;"><strong>Current Colour:</strong></span><span id="highlighted"></span></p>
       </div>
 
       <div class="tabsection availColors">
         <h4>AVAILABLE COLORS</h4>
 
         <div class="colorType">
-          <strong><p class="colorHeader">COOL/WARM WHITE</p></strong>
-          <p class="colorSummary">Two or three words summary</p>
+          <strong><p class="colorHeader">WHITE</p></strong>
+          <p class="colorSummary">White LEDs with white tubes</p>
           <input type="radio" id="Cool" name="chooseColor" value="whiteCool" checked>
-          <label for="Cool"><img src="http://via.placeholder.com/40x40/fff/212121?text=+"></label>
+          <label onclick="colorChange('Cool White')" for="Cool"><img src="http://via.placeholder.com/40x40/f5f5f5/212121?text=+"></label>
           <input type="radio" id="Warm" name="chooseColor" value="whiteWarm">
-          <label for="Warm"><img src="http://via.placeholder.com/40x40/fff9b9/212121?text=+"></label>
+          <label onclick="colorChange('Warm White')" for="Warm"><img src="http://via.placeholder.com/40x40/fff9b9/212121?text=+"></label>
         </div>
 
         <div class="colorType pure">
-          <strong><p class="colorHeader">PURE (PLAIN WHITE TUBE)</p></strong>
-          <p class="colorSummary">Two or three words summary</p>
+          <strong><p class="colorHeader">PURE</p></strong>
+          <p class="colorSummary">Coloured LEDs with white tubes</p>
           <input type="radio" id="WR" name="chooseColor" value="warmRed">
-          <label for="WR"><img src="http://via.placeholder.com/40x40/ff5257/212121?text=+"></label>
+          <label onclick="colorChange('Warm Red')"for="WR"><img src="http://via.placeholder.com/40x40/ff5257/212121?text=+"></label>
           <input type="radio" id="WO" name="chooseColor" value="warmOrange">
-          <label for="WO"><img src="http://via.placeholder.com/40x40/fF5F42/212121?text=+"></label>
+          <label onclick="colorChange('Warm Orange')"for="WO"><img src="http://via.placeholder.com/40x40/fF5F42/212121?text=+"></label>
           <input type="radio" id="WG" name="chooseColor" value="warmGreen">
-          <label for="WG"><img src="http://via.placeholder.com/40x40/2bff98/212121?text=+"></label>
+          <label onclick="colorChange('Warm Green')"for="WG"><img src="http://via.placeholder.com/40x40/2bff98/212121?text=+"></label>
           <input type="radio" id="WB" name="chooseColor" value="warmBlue">
-          <label for="WB"><img src="http://via.placeholder.com/40x40/53e1ff/212121?text=+"></label>
+          <label onclick="colorChange('Warm Blue')"for="WB"><img src="http://via.placeholder.com/40x40/53e1ff/212121?text=+"></label>
           <input type="radio" id="WV" name="chooseColor" value="warmViolet">
-          <label for="WV"><img src="http://via.placeholder.com/40x40/ff57ff/212121?text=+"></label>
+          <label onclick="colorChange('Warm Violet')"for="WV"><img src="http://via.placeholder.com/40x40/ff57ff/212121?text=+"></label>
         </div>
 
         <div class="colorType solid">
-          <strong><p class="colorHeader">SOLID (COLORED TUBE)</p></strong>
-          <p class="colorSummary">Two or three words summary</p>
+          <strong><p class="colorHeader">SOLID</p></strong>
+          <p class="colorSummary">Coloured LEDs with coloured tubes</p>
           <input type="radio" id="CR" name="chooseColor" value="coolRed">
-          <label for="CR"><img src="http://via.placeholder.com/40x40/fe3741/212121?text=+"></label>
+          <label onclick="colorChange('Cool Red')" for="CR"><img src="http://via.placeholder.com/40x40/fe3741/212121?text=+"></label>
           <input type="radio" id="CO" name="chooseColor" value="coolOrange">
-          <label for="CO"><img src="http://via.placeholder.com/40x40/feac57/212121?text=+"></label>
+          <label onclick="colorChange('Cool Orange')" for="CO"><img src="http://via.placeholder.com/40x40/feac57/212121?text=+"></label>
           <input type="radio" id="CY" name="chooseColor" value="coolYellow">
-          <label for="CY"><img src="http://via.placeholder.com/40x40/ffff65/212121?text=+"></label>
+          <label onclick="colorChange('Cool Yellow')" for="CY"><img src="http://via.placeholder.com/40x40/ffff65/212121?text=+"></label>
           <input type="radio" id="CLY" name="chooseColor" value="coolLightYellow">
-          <label for="CLY"><img src="http://via.placeholder.com/40x40/ffff65/212121?text=+"></label>
+          <label onclick="colorChange('Cool Light Yellow')" for="CLY"><img src="http://via.placeholder.com/40x40/ffff65/212121?text=+"></label>
           <input type="radio" id="CG" name="chooseColor" value="coolGreen">
-          <label for="CG"><img src="http://via.placeholder.com/40x40/10ff74/212121?text=+"></label>
+          <label onclick="colorChange('Cool Green')" for="CG"><img src="http://via.placeholder.com/40x40/10ff74/212121?text=+"></label>
           <input type="radio" id="CB" name="chooseColor" value="coolBlue">
-          <label for="CB"><img src="http://via.placeholder.com/40x40/0139ff/212121?text=+"></label>
+          <label onclick="colorChange('Cool Blue')" for="CB"><img src="http://via.placeholder.com/40x40/0139ff/212121?text=+"></label>
           <input type="radio" id="CP" name="chooseColor" value="coolViolet">
-          <label for="CP"><img src="http://via.placeholder.com/40x40/fe1f7d/212121?text=+"></label>
+          <label onclick="colorChange('Cool Violet')" for="CP"><img src="http://via.placeholder.com/40x40/fe1f7d/212121?text=+"></label>
         </div>
     </div>
 
@@ -333,13 +335,13 @@
 
       <div class="tabsection availShapes">
         <input type="radio" id="square" name="chooseShape" value="square" checked>
-          <label for="square"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="square"><img src="http://via.placeholder.com/100x100?text=square"></label>
         <input type="radio" id="rectangle" name="chooseShape" value="rectangle">
-          <label for="rectangle"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="rectangle"><img src="http://via.placeholder.com/100x100?text=rectangle"></label>
         <input type="radio" id="circle" name="chooseShape" value="circle">
-          <label for="circle"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="circle"><img src="http://via.placeholder.com/100x100?text=circle"></label>
         <input type="radio" id="outline" name="chooseShape" value="outline">
-          <label for="outline"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="outline"><img src="http://via.placeholder.com/100x100?text=outline"></label>
       </div>
 
     </div><!--close tabbox -->
@@ -358,20 +360,20 @@
       </div>
 
       <div class="tabsection availNails">
-        <h4>AVAILABLE BACKDROP SHAPES</h4>
+        <h4>AVAILABLE NAIL TYPES</h4>
 
         <!-- standard -->
         <input type="radio" id="standard" name="chooseNails" value="standard" checked>
         <label for="standard" class="displayRadio" style="text-align: left; border: none;">
           <strong><p class="colorHeader">STANDARD NAILS</p></strong>
-          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</p>
+          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut</p>
         </label>
 
         <!-- installation -->
         <input type="radio" id="hanging" name="chooseNails" value="hanging">
         <label for="hanging" class="displayRadio" style="text-align: left; border: none;">
           <strong><p class="colorHeader">HANGING NAILS</p></strong>
-          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</p>
+          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut</p>
         </label>
       </div>
 
@@ -405,8 +407,8 @@
           <label for="basicZipcode">ZIPCODE</label>
           <input id="basicZipcode" type="text" name="orderZip">
           <select id="basicCountry" list="countries" name="orderCountry">
-            <option value="Canada">Canada</option>
-            <option value="United States" selected>United States</option>
+            <option value="Canada" selected>Canada</option>
+            <option value="United States">United States</option>
             <option value="United Kingdom">United Kingdom</option>
             <option value="Europe">Europe</option>
             <option value="Asia">Asia</option>
@@ -517,6 +519,9 @@ textarea.onkeyup = function() {
    textarea.value = lines.slice(0, limit).join("\n");
 };
 
+function colorChange(color) {
+  document.getElementById('highlighted').innerHTML = color
+}
 </script>
 
 </body>
