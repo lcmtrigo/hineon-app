@@ -251,7 +251,7 @@ ul.cta li:last-child {
 
 .modal {
   position: absolute;
-  top: 30%;
+  top: 25%;
   overflow: hidden;
   padding: 30px;
   background-color: #ffffff;
@@ -259,6 +259,7 @@ ul.cta li:last-child {
   color: #111;
   z-index: 123456;
   display:none;
+  box-shadow: 10px 10px 5px rgba(171,171,171,0.5);
 }
 
 .modal h1 {
@@ -522,6 +523,10 @@ ul.cta li:last-child {
   text-align: center;
 }
 
+#QtyShipping.tabcontent label {
+  margin-left: 0;
+}
+
 .tabcontent label img {
   padding:0;
   vertical-align: middle;
@@ -694,6 +699,17 @@ label.displayRadio {
 
 .dollar {
   font-size:2em;
+}
+
+.sign-size {
+  position: absolute;
+  top: 32.5px;
+  left: 100px;
+}
+
+h4.widthHeight {
+  color: #fff;
+  text-shadow: 2px 2px 4px #212121;
 }
 
 
