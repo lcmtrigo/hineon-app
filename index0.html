@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <title>neon</title>
   
-  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
 
       <link rel="stylesheet" href="bxslider/bxslider.css">
       <link rel="stylesheet" href="css/alt.css">
       <link rel="stylesheet" href="css/alttextarea.css">
+      <link rel="stylesheet" href="css/mobile.css">
 
 
   
@@ -32,17 +33,17 @@
     <ul class="bxslider">
 
       <li>
-      <div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/884977/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;">
+      <div class="slides" style="background-image: url('img/bg/indoor1.jpg'); background-size:cover; background-position: center center;">
 
-        <div class="outdoorSlider" style="background-image: url('http://via.placeholder.com/1366x768/000065/cccccc/?text=Outdoor+Outdoor+Outdoor+Outdoor+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div>
+        <div class="outdoorSlider" style="background-image: url('img/bg/outdoor1.jpg'); background-size:cover; background-position: center center;"></div>
 
       </div>
       </li>
 
       <li>
-      <div class="slides" style="background-image: url('http://via.placeholder.com/1366x768/8C773D/cccccc/?text=indoor+image+this+is+an+image+thank+you+placeholder+com'); background-size:cover; background-position: center center;">
+      <div class="slides" style="background-image: url('img/bg/indoor2.jpg'); background-size:cover; background-position: center center;">
 
-        <div class="outdoorSlider" style="background-image: url('http://via.placeholder.com/1366x768/345300/cccccc/?text=Outdoor+Outdoor+Outdoor+Outdoor+thank+you+placeholder+com'); background-size:cover; background-position: center center;"></div>
+        <div class="outdoorSlider" style="background-image: url('img/bg/outdoor1.jpg'); background-size:cover; background-position: center center;"></div>
 
       </div>
       </li>
@@ -100,14 +101,14 @@
     <!-- MODAL: email -->
 
     <div id="email" class="modal">
-    <h1>SAVE CURRENT SCREEN TO MY EMAIL</h1>
+    <h1>SAVE <span class="xxshide">CURRENT SCREEN </span>TO MY EMAIL</h1>
       <!-- INPUT / SUBMIT HERE -->
     <label>NAME</label><input id="modalname" type="text">
       <!-- INPUT / SUBMIT HERE -->
     <label>EMAIL</label><input id="modalemail" type="text">
     <br>
       <!-- INPUT / SUBMIT HERE -->
-    <label for="subscribe">STAY CONNECTED FOR NEWS AND UPDATES!&nbsp;</label><input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
+    <label for="subscribe">STAY CONNECTED FOR <span class="xxshide">NEWS AND </span>UPDATES!&nbsp;</label><input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
       <!-- INPUT / SUBMIT HERE -->
     <button id="modalemailsubmit" type="submit" class="modalbutton">EMAIL</button>
 
@@ -151,12 +152,15 @@
 
 <!-- !!!!!!!!!!!!!TEXT INPUT!!!!!!!!!!!!! -->
 
-<textarea id="clientText" cols="20" id="clientText" name="clientText" class="clientTextBase" rows="6" placeholder="START TYPING HERE!
-&lpar;Max 6 lines, but please no dots!&rpar;" autofocus></textarea>
+<div class="widther">
+
+<textarea id="clientText" id="clientText" name="clientText" class="clientTextBase" rows="6" placeholder="START" wrap="off" autofocus></textarea>
 
 <!-- BACKDROP -->
 
 <div id="backdrop" class="backdrop"></div>
+
+</div>
 
 <!-- TEXT & BACKDROP END -->
 
@@ -167,19 +171,19 @@
     <!-- bottom menu -->  
     <ul class="bottomnav">
       <li>
-      <button id="menu" class="tablinks menu menuText" onclick="openMenu(event, 'Text')">TEXT</button>
+      <button id="menu" class="tablinks menu menuText" onclick="openMenu(event, 'Text')"><span class="xshide">TEXT</span><span class="xsshow"><i class="fa fa-font" aria-hidden="true"></i></span></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuColor" onclick="openMenu(event, 'Color')">COLOR</button>
+      <button id="menu" class="tablinks menu menuColor" onclick="openMenu(event, 'Color')"><span class="xshide">COLOR</span><span class="xsshow"><i class="fa fa-tint" aria-hidden="true"></i></span></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuShape" onclick="openMenu(event, 'Shape')">SHAPE</button>
+      <button id="menu" class="tablinks menu menuShape" onclick="openMenu(event, 'Shape')"><span class="xshide">SHAPE</span><span class="xsshow"><i class="fa fa-square-o" aria-hidden="true"></i></span></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuInstallation" onclick="openMenu(event, 'Installation')">INSTALLATION</button>
+      <button id="menu" class="tablinks menu menuInstallation" onclick="openMenu(event, 'Installation')"><span class="xshide">INSTALL</span><span class="mobilehide">ATION</span><span class="xsshow"><i class="fa fa-wrench" aria-hidden="true"></i></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuQtyShipping" onclick="openMenu(event, 'QtyShipping')">QTY&amp;SHIPPING</button>
+      <button id="menu" class="tablinks menu menuQtyShipping" onclick="openMenu(event, 'QtyShipping')"><span class="xshide">QTY&amp;SHIP</span><span class="mobilehide">PING</span><span class="xsshow"><i class="fa fa-gift" aria-hidden="true"></i></span></button>
       </li>
     </ul>
 
@@ -188,7 +192,7 @@
     <div id="Text" class="tabcontent">
     <div class="tabbox">
 
-      <div class="tabsection infoText">
+      <div class="tabsection infoText mobilehide">
         <h3 class="contentHeader">TEXT OPTIONS</h3>
         <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
       </div>
@@ -197,32 +201,32 @@
         <h4>AVAILABLE FONTS</h4>
         <div class="fonts">
           <input type="radio" id="fontA" name="chooseFont" value="fontA" checked>
-          <label for="fontA"><img src="http://via.placeholder.com/160x30?text=font+A"></label>
+          <label for="fontA"><img src="img/font/fontA.png"></label>
           <input type="radio" id="fontB" name="chooseFont" value="fontB">
-          <label for="fontB"><img src="http://via.placeholder.com/160x30?text=font+B"></label>
+          <label for="fontB"><img src="img/font/fontB.png"></label>
           <input type="radio" id="fontC" name="chooseFont" value="fontC">
-          <label for="fontC"><img src="http://via.placeholder.com/160x30?text=font+C"></label>
+          <label for="fontC"><img src="img/font/fontC.png"></label>
           <input type="radio" id="fontD" name="chooseFont" value="fontD">
-          <label for="fontD"><img src="http://via.placeholder.com/160x30?text=font+D"></label>
+          <label for="fontD"><img src="img/font/fontD.png"></label>
           <input type="radio" id="fontE" name="chooseFont" value="fontE">
-          <label for="fontE"><img src="http://via.placeholder.com/160x30?text=font+E"></label>
+          <label for="fontE"><img src="img/font/fontE.png"></label>
           <input type="radio" id="fontF" name="chooseFont" value="fontF">
-          <label for="fontF"><img src="http://via.placeholder.com/160x30?text=font+F"></label>
+          <label for="fontF"><img src="img/font/fontF.png"></label>
           <input type="radio" id="fontG" name="chooseFont" value="fontG">
-          <label for="fontG"><img src="http://via.placeholder.com/160x30?text=font+G"></label>
+          <label for="fontG"><img src="img/font/fontG.png"></label>
           <input type="radio" id="fontH" name="chooseFont" value="fontH">
-          <label for="fontH"><img src="http://via.placeholder.com/160x30?text=font+H"></label>
+          <label for="fontH"><img src="img/font/fontH.png"></label>
         </div>
        </div>
 
        <div class="tabsection sizeAlign">
         <div class="fontSize">      
           <input type="radio" id="S" name="chooseFontSize" value="fontSmall" checked>
-          <label for="S"><img src="http://via.placeholder.com/30x30/ccc/212121?text=S"></label>
+          <label for="S"><img src="http://via.placeholder.com/30x30/fff/212121?text=S"></label>
           <input type="radio" id="M" name="chooseFontSize" value="fontMedium">
-          <label for="M"><img src="http://via.placeholder.com/30x30/ccc/212121?text=M"></label>
+          <label for="M"><img src="http://via.placeholder.com/30x30/fff/212121?text=M"></label>
           <input type="radio" id="L" name="chooseFontSize" value="fontLarge">
-          <label for="L"><img src="http://via.placeholder.com/30x30/ccc/212121?text=L"></label>  
+          <label for="L" class="third"><img src="http://via.placeholder.com/30x30/fff/212121?text=L"></label>  
         </div>
 
         <div class="fontAlign">
@@ -246,7 +250,7 @@
     <div id="Color" class="tabcontent">
     <div class="tabbox">
 
-      <div class="tabsection infoText">
+      <div class="tabsection infoText mobilehide">
         <h3 class="contentHeader">COLOR OPTIONS</h3>
         <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
       </div>
@@ -258,43 +262,43 @@
           <strong><p class="colorHeader">COOL/WARM WHITE</p></strong>
           <p class="colorSummary">Two or three words summary</p>
           <input type="radio" id="Cool" name="chooseColor" value="whiteCool" checked>
-          <label for="Cool"><img src="http://via.placeholder.com/40x40/fff/212121?text=+"></label>
+          <label for="Cool"><img src="img/color/cool_white.png"></label>
           <input type="radio" id="Warm" name="chooseColor" value="whiteWarm">
-          <label for="Warm"><img src="http://via.placeholder.com/40x40/fff9b9/212121?text=+"></label>
+          <label for="Warm"><img src="img/color/warm_white.png"></label>
         </div>
 
         <div class="colorType pure">
           <strong><p class="colorHeader">PURE (PLAIN WHITE TUBE)</p></strong>
           <p class="colorSummary">Two or three words summary</p>
           <input type="radio" id="WR" name="chooseColor" value="warmRed">
-          <label for="WR"><img src="http://via.placeholder.com/40x40/ff5257/212121?text=+"></label>
+          <label for="WR"><img src="img/color/pure_red.png"></label>
           <input type="radio" id="WO" name="chooseColor" value="warmOrange">
-          <label for="WO"><img src="http://via.placeholder.com/40x40/fF5F42/212121?text=+"></label>
+          <label for="WO"><img src="img/color/pure_orange.png"></label>
           <input type="radio" id="WG" name="chooseColor" value="warmGreen">
-          <label for="WG"><img src="http://via.placeholder.com/40x40/2bff98/212121?text=+"></label>
+          <label for="WG"><img src="img/color/pure_green.png"></label>
           <input type="radio" id="WB" name="chooseColor" value="warmBlue">
-          <label for="WB"><img src="http://via.placeholder.com/40x40/53e1ff/212121?text=+"></label>
-          <input type="radio" id="WV" name="chooseColor" value="warmViolet">
-          <label for="WV"><img src="http://via.placeholder.com/40x40/ff57ff/212121?text=+"></label>
+          <label for="WB"><img src="img/color/pure_blue.png"></label>
+          <input type="radio" id="WV" name="chooseColor" value="warmPink">
+          <label for="WV"><img src="img/color/pure_pink.png"></label>
         </div>
 
         <div class="colorType solid">
           <strong><p class="colorHeader">SOLID (COLORED TUBE)</p></strong>
           <p class="colorSummary">Two or three words summary</p>
           <input type="radio" id="CR" name="chooseColor" value="coolRed">
-          <label for="CR"><img src="http://via.placeholder.com/40x40/fe3741/212121?text=+"></label>
+          <label for="CR"><img src="img/color/solid_red.png"></label>
           <input type="radio" id="CO" name="chooseColor" value="coolOrange">
-          <label for="CO"><img src="http://via.placeholder.com/40x40/feac57/212121?text=+"></label>
+          <label for="CO"><img src="img/color/solid_orange.png"></label>
           <input type="radio" id="CY" name="chooseColor" value="coolYellow">
-          <label for="CY"><img src="http://via.placeholder.com/40x40/ffff65/212121?text=+"></label>
+          <label for="CY"><img src="img/color/solid_yellow.png"></label>
           <input type="radio" id="CLY" name="chooseColor" value="coolLightYellow">
-          <label for="CLY"><img src="http://via.placeholder.com/40x40/ffff65/212121?text=+"></label>
+          <label for="CLY"><img src="img/color/solid_lightyellow.png"></label>
           <input type="radio" id="CG" name="chooseColor" value="coolGreen">
-          <label for="CG"><img src="http://via.placeholder.com/40x40/10ff74/212121?text=+"></label>
+          <label for="CG"><img src="img/color/solid_green.png"></label>
           <input type="radio" id="CB" name="chooseColor" value="coolBlue">
-          <label for="CB"><img src="http://via.placeholder.com/40x40/0139ff/212121?text=+"></label>
-          <input type="radio" id="CP" name="chooseColor" value="coolViolet">
-          <label for="CP"><img src="http://via.placeholder.com/40x40/fe1f7d/212121?text=+"></label>
+          <label for="CB"><img src="img/color/solid_blue.png"></label>
+          <input type="radio" id="CP" name="chooseColor" value="coolPink">
+          <label for="CP"><img src="img/color/solid_pink.png"></label>
         </div>
     </div>
 
@@ -308,13 +312,13 @@
     <div id="Shape" class="tabcontent">
     <div class="tabbox">
 
-      <div class="tabsection infoText">
+      <div class="tabsection infoText mobilehide">
         <h3 class="contentHeader">SHAPE OPTIONS</h3>
         <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
       </div>
 
       <div class="tabsection indoorOutdoor">
-        <h4>AVAILABLE BACKDROP SHAPES</h4>
+        <h4>AVAILABLE BACKDROP <span class="xshide">SHAPES</span></h4>
 
         <!-- indoor -->
         <input type="radio" id="In" name="chooseIndoorOutdoor" value="indoor" checked>
@@ -333,13 +337,13 @@
 
       <div class="tabsection availShapes">
         <input type="radio" id="rectangle" name="chooseShape" value="rectangle">
-          <label for="rectangle"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="rectangle"><img src="img/shape/rectangle.png"></label>
         <input type="radio" id="square" name="chooseShape" value="square">
-          <label for="square"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="square"><img src="img/shape/square.png"></label>
         <input type="radio" id="circle" name="chooseShape" value="circle">
-          <label for="circle"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="circle"><img src="img/shape/circle.png"></label>
         <input type="radio" id="outline" name="chooseShape" value="outline">
-          <label for="outline"><img src="http://via.placeholder.com/100x100"></label>
+          <label for="outline"><img src="img/shape/outline.png"></label>
       </div>
 
     </div><!--close tabbox -->
@@ -352,26 +356,26 @@
     <div id="Installation" class="tabcontent">
     <div class="tabbox">
 
-      <div class="tabsection infoText">
+      <div class="tabsection infoText mobilehide">
         <h3 class="contentHeader">INSTALLATION OPTIONS</h3>
         <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
       </div>
 
       <div class="tabsection availNails">
-        <h4>AVAILABLE BACKDROP SHAPES</h4>
+        <h4>AVAILABLE <span class="xxshide">INSTALLATION</span>OPTIONS</h4>
 
         <!-- standard -->
         <input type="radio" id="standard" name="chooseNails" value="standard" checked>
         <label for="standard" class="displayRadio" style="text-align: left; border: none;">
           <strong><p class="colorHeader">STANDARD NAILS</p></strong>
-          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</p>
+          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, <span class="xshide">sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</span></p>
         </label>
 
         <!-- installation -->
         <input type="radio" id="hanging" name="chooseNails" value="hanging">
         <label for="hanging" class="displayRadio" style="text-align: left; border: none;">
           <strong><p class="colorHeader">HANGING NAILS</p></strong>
-          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</p>
+          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, <span class="xshide">sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</span></p>
         </label>
       </div>
 
@@ -401,7 +405,7 @@
           <label for="basicEmail">EMAIL</label>
           <input id="basicEmail" type="text" name="orderEmail" size="42">
         </div>
-        <div class="ifield">
+        <div class="ifield why">
           <label for="basicZipcode">ZIPCODE</label>
           <input id="basicZipcode" type="text" name="orderZip">
           <select id="basicCountry" list="countries" name="orderCountry">
@@ -416,7 +420,7 @@
       </div>
 
       <div class="tabsection comment">
-        <label for="comment">COMMENT</label>
+        <label for="comment" class="xshide">COMMENT</label>
         <textarea id="comment" name="orderComment" rows="8" cols="45" placeholder="Feel free to leave us a comment!"></textarea>
       </div>
     </div><!--close tabbox-->
@@ -455,7 +459,7 @@
 
     <div id="Purchase" class="tabcontent">
     <div class="quoteTabbox">
-      <div class="tabsection infoText">
+      <div class="tabsection quoteText">
         <h3 class="contentHeader">THANK YOU!</h3>
         <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
       </div>
@@ -485,37 +489,20 @@ $(document).ready(function(){
 });
 
 /* textarea */
-
-var limit = 6; // <---max no of lines you want in textarea
-var textarea = document.getElementById("clientText");
-var spaces = textarea.getAttribute("cols");
-
-textarea.onkeyup = function() {
-   var lines = textarea.value.split("\n");
+    var lines = 6;
     
-   for (var i = 0; i < lines.length; i++) 
-   {
-         if (lines[i].length <= spaces) continue;
-         var j = 0;
-         
-        var space = spaces;
+    $('#clientText').keydown(function(e) {
         
-        while (j++ <= spaces) 
-        {
-           if (lines[i].charAt(j) === " ") space = j;  
+        newLines = $(this).val().split("\n").length;
+        
+        if(e.keyCode == 13 && newLines >= lines) {
+            $('#clientText').css('color', 'red');
+            return false;
         }
-    lines[i + 1] = lines[i].substring(space + 1) + (lines[i + 1] || "");
-    lines[i] = lines[i].substring(0, space);
-  }
-    if(lines.length>limit)
-    {
-        textarea.style.color = 'red';
-        setTimeout(function(){
-            textarea.style.color = '';
-        },500);
-    }    
-   textarea.value = lines.slice(0, limit).join("\n");
-};
+        else {
+            $('#clientText').css('color', '');
+        }
+    });
 
 </script>
 

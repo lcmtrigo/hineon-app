@@ -63,26 +63,88 @@ function Shaper() {
 
 }
 
+function TextareaSizer() {
+  
+  $('textarea').on('keyup',function() {
+  
+  $(this).css('width','0px');
+  $(this).css('height','0px');
+  $(this).css('width',Math.max(10,this.scrollWidth)+'px');
+  $(this).css('height',Math.max(50,this.scrollHeight)+'px');
+
+    Shaper();
+
+  });
+
+
+
+}
+
 function Positioner() {
   
   var frameWidth = $("#webapp").width();
   var frameHeight = $("#webapp").height();
   
-  var textareaWidth = $(".clientTextBase").width();
-  var textareaHeight = $(".clientTextBase").height();
+  var textareaWidth = $("#clientText").width();
+  var textareaHeight = $("#clientText").height();
 
   var textareaTop = (frameHeight-textareaHeight-150)/2;
-  var textareaLeft = (frameWidth-textareaWidth-50)/2;
+  var textareaLeft = (frameWidth-textareaWidth-60)/2;
 
-  $("#clientText").css('top',textareaTop);
-  $("#clientText").css('margin-left',textareaLeft);
-  $(".backdrop").css('top',textareaTop);
-  $(".backdrop").css('margin-left',textareaLeft);
-
-//Need to position Circle!!
+  if (frameWidth >768) {
+    $("#clientText").css('top',textareaTop);
+    // $(".backdrop").css('top',-textareaHeight);
+  } else if (frameWidth <=768) {
+    $("#clientText").css('top',textareaTop);
+    // $(".backdrop").css('top',-textareaHeight);
+  } else {}
 
 }
 
+function mobileModal() {
+
+  var frameWidth = $("#webapp").width();
+  var quoteWidth = $(".quoteTabbox").width();  
+  var quoteLeftMargin = (frameWidth-quoteWidth-24)/2;  //padding12
+
+  if (frameWidth <= 768) {
+  
+  $(".quoteTabbox").css("left", quoteLeftMargin); 
+  $("#GetQuote .btnContentClose").css("right", quoteLeftMargin+15);
+  $("#Purchase .btnContentClose").css("right", quoteLeftMargin+15);
+
+  } else {}
+
+}
+
+function mobileFAQmodal() {
+
+  var frameWidth = $("#webapp").width();
+  var frameHeight = $("#webapp").height();
+  var containerWidth = 500;  
+  var leftMargin = (frameWidth-containerWidth-60)/2;  //padding30
+  
+  var leftXSMargin = (frameWidth-270)/2;  
+
+  var emailWidth = $("#email").width();  
+  var emailLeftMargin = (frameWidth-emailWidth-20)/2;  //padding30
+
+    if (frameWidth < 576) {
+      $("div.modal").css("margin-left", leftXSMargin);
+      $("#email").css("margin-left",emailLeftMargin);}
+      else {
+        $("div.modal").css("margin-left", leftMargin); 
+        $("#email").css("margin-left",emailLeftMargin);
+      }
+
+ 
+  
+  var tabWidth = frameWidth-75;
+  $(".tabbox").width(tabWidth);
+
+
+
+}
 
 
 
@@ -101,16 +163,8 @@ $(document).ready(function()
       }
     });
 
-  var WindowWidth = $(window).width();
-  var containerWidth = $(".modal").width();  
-  var leftMargin = (WindowWidth-containerWidth)/2-30;  //padding30
-  
-  $(".modal").css("marginLeft", leftMargin); 
-
-  var frameWidth = $("#webapp").width();
-  var frameHeight = $("#webapp").height();
-  var tabWidth = frameWidth-75;
-  $(".tabbox").width(tabWidth);
+  TextareaSizer();
+  mobileFAQmodal();
 
   var textareaFont = $("#clientText").css("font-family");
   var textareaFontSize = $("#clientText").css("font-size");
@@ -127,6 +181,7 @@ $(document).ready(function()
   $(".backdrop").height('auto');
 
   Positioner();
+  mobileModal();
 
 /*pink line*/
   $('.btnMenuDie').on('click', function(){
@@ -188,7 +243,6 @@ $(document).ready(function()
     $(".backdrop").css("font-family", textareaFont);
 
     Shaper();
-    Positioner();
        
 
     }); /*fonts end*/
@@ -196,6 +250,11 @@ $(document).ready(function()
 /* font size */
 $('input[name=chooseFontSize]:radio').on('change', function() {
        
+      $('textarea').css('width','0px');
+      $('textarea').css('height','0px');
+      $('textarea').css('width',Math.max(10,this.scrollWidth)+'px');
+      $('textarea').css('height',Math.max(50,this.scrollHeight)+'px');  
+
        var Sizechoice = $('input[name=chooseFontSize]:checked').val();
 
        if (Sizechoice=='fontSmall') {
@@ -217,7 +276,7 @@ $('input[name=chooseFontSize]:radio').on('change', function() {
     $(".backdrop").css("line-height", textareaFontHeight);
 
     Shaper();
-    Positioner();
+
 
 
 });
@@ -245,8 +304,6 @@ $('input[name=chooseFontAlign]:radio').on('change', function() {
    var textareaAlign = $("#clientText").css("text-align");
     $(".backdrop").css("text-align", textareaAlign);
 
-    Positioner();
-
 });
 
 
@@ -260,90 +317,146 @@ $('input[name=chooseColor]:radio').on('change', function() {
        if (Colorchoice=='whiteCool'&&Switchoff=='none') {
           $("#clientText").addClass('cw woff');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-cw');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='whiteWarm'&&Switchoff=='none') {
           $("#clientText").addClass('ww woff');
           $("#clientText").removeClass('cr co cy cg cb cp cly cw wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-ww');
+          $("#bulb").removeClass('gradient-cw gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmRed'&&Switchoff=='none') {
           $("#clientText").addClass('wr woff');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww cw wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-wr');
+          $("#bulb").removeClass('gradient-ww gradient-cw gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmOrange'&&Switchoff=='none') {
           $("#clientText").addClass('wo woff');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr cw wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-wo');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-cw gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmGreen'&&Switchoff=='none') {
           $("#clientText").addClass('wg woff');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo cw wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-wg');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-cw gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmBlue'&&Switchoff=='none') {
           $("#clientText").addClass('wb woff');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg cw wp croff cooff cyoff clyoff cgoff cboff cpoff');
-       } else if (Colorchoice=='warmViolet'&&Switchoff=='none') {
+          $("#bulb").addClass('gradient-wb');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-cw gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+       } else if (Colorchoice=='warmPink'&&Switchoff=='none') {
           $("#clientText").addClass('wp woff');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb cw croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-wp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-cw gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolRed'&&Switchoff=='none') {
           $("#clientText").addClass('cr croff');
           $("#clientText").removeClass('cw co cy cg cb cp cly ww wr wo wg wb wp woff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-cr');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cw gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolOrange'&&Switchoff=='none') {
           $("#clientText").addClass('co cooff');
           $("#clientText").removeClass('cr cw cy cg cb cp cly ww wr wo wg wb wp croff woff cyoff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-co');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-cw gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolYellow'&&Switchoff=='none') {
           $("#clientText").addClass('cy cyoff');
           $("#clientText").removeClass('cr co cw cg cb cp cly ww wr wo wg wb wp croff cooff woff clyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-cy');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cw gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolLightYellow'&&Switchoff=='none') {
           $("#clientText").addClass('cly clyoff');
           $("#clientText").removeClass('cr co cy cg cb cp cw ww wr wo wg wb wp croff cooff cyoff woff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-cly');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cw gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolGreen'&&Switchoff=='none') {
           $("#clientText").addClass('cg cgoff');
           $("#clientText").removeClass('cr co cy cw cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff woff cboff cpoff');
+          $("#bulb").addClass('gradient-cg');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cw gradient-cb gradient-cp');
        } else if (Colorchoice=='coolBlue'&&Switchoff=='none') {
           $("#clientText").addClass('cb cboff');
           $("#clientText").removeClass('cr co cy cg cw cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff woff cpoff');
-       } else if (Colorchoice=='coolViolet'&&Switchoff=='none') {
+          $("#bulb").addClass('gradient-cb');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cw gradient-cp');
+       } else if (Colorchoice=='coolPink'&&Switchoff=='none') {
           $("#clientText").addClass('cp cpoff');
           $("#clientText").removeClass('cr co cy cg cb cw cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff woff');
+          $("#bulb").addClass('gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cw');
        }
 
 
       else if (Colorchoice=='whiteCool'&&Switchoff=='block') {
           $("#clientText").addClass('cw');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-cw');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='whiteWarm'&&Switchoff=='block') {
           $("#clientText").addClass('ww');
           $("#clientText").removeClass('cr co cy cg cb cp cly cw wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-ww');
+          $("#bulb").removeClass('gradient-cw gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmRed'&&Switchoff=='block') {
           $("#clientText").addClass('wr');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww cw wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-wr');
+          $("#bulb").removeClass('gradient-ww gradient-cw gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmOrange'&&Switchoff=='block') {
           $("#clientText").addClass('wo');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr cw wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-wo');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-cw gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmGreen'&&Switchoff=='block') {
           $("#clientText").addClass('wg');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo cw wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-wg');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-cw gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmBlue'&&Switchoff=='block') {
           $("#clientText").addClass('wb');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg cw wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
-       } else if (Colorchoice=='warmViolet'&&Switchoff=='block') {
+          $("#bulb").addClass('gradient-wb');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-cw gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+       } else if (Colorchoice=='warmPink'&&Switchoff=='block') {
           $("#clientText").addClass('wp');
           $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb cw croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-wp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-cw gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolRed'&&Switchoff=='block') {
           $("#clientText").addClass('cr');
           $("#clientText").removeClass('cw co cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-cr');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cw gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolOrange'&&Switchoff=='block') {
           $("#clientText").addClass('co');
           $("#clientText").removeClass('cr cw cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-co');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-cw gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolYellow'&&Switchoff=='block') {
           $("#clientText").addClass('cy');
           $("#clientText").removeClass('cr co cw cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-cy');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cw gradient-cly gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolLightYellow'&&Switchoff=='block') {
           $("#clientText").addClass('cly');
           $("#clientText").removeClass('cr co cy cg cb cp cw ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-cly');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cw gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolGreen'&&Switchoff=='block') {
           $("#clientText").addClass('cg');
           $("#clientText").removeClass('cr co cy cw cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-cg');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cw gradient-cb gradient-cp');
        } else if (Colorchoice=='coolBlue'&&Switchoff=='block') {
           $("#clientText").addClass('cb');
           $("#clientText").removeClass('cr co cy cg cw cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
-       } else if (Colorchoice=='coolViolet'&&Switchoff=='block') {
+          $("#bulb").addClass('gradient-cb');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cw gradient-cp');
+       } else if (Colorchoice=='coolPink'&&Switchoff=='block') {
           $("#clientText").addClass('cp');
           $("#clientText").removeClass('cr co cy cg cb cw cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cw');
        } else {
         alert('Please select color!');
        };
@@ -374,7 +487,6 @@ $('input[name=chooseIndoorOutdoor]:radio').on('change', function() {
 $('input[name=chooseShape]:radio').on('change', function(){
 
 Shaper();
-Positioner();
 
 });
 
@@ -392,11 +504,7 @@ Positioner();
 
 $(window).on('resize',function() {
 
-  var WindowWidth = $(window).width();
-  var containerWidth = $(".modal").width();  
-  var leftMargin = (WindowWidth-containerWidth)/2-30;  //padding30
-  
-  $(".modal").css("marginLeft", leftMargin); 
+  mobileFAQmodal();
 
   var frameWidth = $("#webapp").width();
   var frameHeight = $("#webapp").height();
@@ -412,6 +520,7 @@ $(window).on('resize',function() {
   $(".backdrop").css("line-height", textareaFontHeight);
 
   Positioner();
+  mobileModal();
 
 }); /*Window Resize close*/
 
