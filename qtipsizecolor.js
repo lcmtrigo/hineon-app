@@ -2,56 +2,56 @@
 /* size & color */
 
 $('.qtipSmall').qtip({
-    content: '0" /line',
+    content: '8" / row, 6 rows Max',
     position: {
         my: 'top center',  // Position my top left...
         at: 'bottom center', // at the bottom right of...
         target: $('.qtipSmall') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
 $('.qtipMedium').qtip({
-    content: '0" /line',
+    content: '14" / row, 6 rows Max',
     position: {
         my: 'top center',  // Position my top left...
         at: 'bottom center', // at the bottom right of...
         target: $('.qtipMedium') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
 $('.qtipLarge').qtip({
-    content: '0" /line',
+    content: '20" / row, 4 rows Max',
     position: {
         my: 'top center',  // Position my top left...
         at: 'bottom center', // at the bottom right of...
         target: $('.qtipLarge') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -63,13 +63,13 @@ $('.qtipCw').qtip({
         target: $('.qtipCw') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -81,13 +81,13 @@ $('.qtipWw').qtip({
         target: $('.qtipWw') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -99,13 +99,13 @@ $('.qtipWr').qtip({
         target: $('.qtipWr') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -117,13 +117,13 @@ $('.qtipWo').qtip({
         target: $('.qtipWo') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -135,13 +135,13 @@ $('.qtipWg').qtip({
         target: $('.qtipWg') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -153,13 +153,13 @@ $('.qtipWb').qtip({
         target: $('.qtipWb') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -171,13 +171,13 @@ $('.qtipWp').qtip({
         target: $('.qtipWp') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -189,13 +189,13 @@ $('.qtipCr').qtip({
         target: $('.qtipCr') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -207,13 +207,31 @@ $('.qtipCo').qtip({
         target: $('.qtipCo') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
+    }
+});
+
+$('.qtipCgd').qtip({
+    content: 'Cool Gold',
+    position: {
+        my: 'top center',  // Position my top left...
+        at: 'bottom center', // at the bottom right of...
+        target: $('.qtipCgd') // my target
+    },
+    show: {
+        event: 'click'
+    },
+    hide: {
+        event: 'unfocus'
+    },
+    style: {
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -225,31 +243,13 @@ $('.qtipCy').qtip({
         target: $('.qtipCy') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
-    }
-});
-
-$('.qtipCly').qtip({
-    content: 'Cool Light Yellow',
-    position: {
-        my: 'top center',  // Position my top left...
-        at: 'bottom center', // at the bottom right of...
-        target: $('.qtipCly') // my target
-    },
-    show: {
-        event: 'click mouseenter'
-    },
-    hide: {
-        event: 'unfocus'
-    },
-    style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -261,13 +261,13 @@ $('.qtipCg').qtip({
         target: $('.qtipCg') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -279,13 +279,13 @@ $('.qtipCb').qtip({
         target: $('.qtipCb') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });
 
@@ -297,12 +297,12 @@ $('.qtipCp').qtip({
         target: $('.qtipCp') // my target
     },
     show: {
-        event: 'click mouseenter'
+        event: 'click'
     },
     hide: {
         event: 'unfocus'
     },
     style: {
-        classes: 'qtip-dark'
+        classes: 'qtip-tipsy'
     }
 });

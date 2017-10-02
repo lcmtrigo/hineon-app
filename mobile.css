@@ -212,10 +212,17 @@
 		font-size: 1.15em;
 	}
 
-	.quoteText h4, h4.widthHeight {
+	.quoteText h4 {
 	  font-size: 1.4em;
-	  color: #333;
+	  color: #222;
 	}
+
+	h4.widthHeight {
+	  font-size: 1.4em;
+	  color: #fff;
+	  text-shadow: 2px 2px 4px #212121;
+	}
+
 
 
 }
@@ -225,6 +232,10 @@
 
 @media (max-width: 1024px) and (orientation:portrait){
 	
+	.modal {
+		top:30%;
+	}
+
 	.mobilehide {
 		display:none;
 	}
@@ -707,6 +718,12 @@
 		width: 230px;
 	}
 
+	.sign-size {
+	position: absolute;
+    top: 100px;
+    left: 25px;
+	}
+
 }
 
 
@@ -824,19 +841,19 @@
 	}
 
 	.clientTextBase {
-		font-size: 1.1em;
+		font-size: 2.2em;
 	}
 
 	.size-small {
-		font-size: 1.1em;
+		font-size: 2.2em;
 	}
 
 	.size-medium {
-		font-size: 1.6em;
+		font-size: 3.85em;
 	}
 
 	.size-large {
-		font-size: 2em;
+		font-size: 5.5em;
 	}
 
 	.tabcontent {
@@ -1051,4 +1068,22 @@
 	.quoteText p{
 		width: 300px;
 	}
+
+	.sign-size {
+		top:100px;
+		left:50%;
+		-webkit-transform:translateX(-50%);
+		transform:translateX(-50%);
+	}
+
+	h4.widthHeight {
+    font-size: 1em;
+    text-align: center;
+	}
+
+	#highlighted, #fontHighlighted {
+    font-size: 0.9em;
+    text-align: center;
+    }
+
 }

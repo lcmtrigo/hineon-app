@@ -22,13 +22,12 @@
 <section>
 <h1>TESTING TESTING</h1>
 <h2>MONDAY OCTOBER 2, 2017</h2>
-<button id="testing" onclick="render();">html2canvas TEST</button>
 </section>
 
 <div id="webapp">
   <!-- choose background -->  
-<form name="order" ></form>
-<!-- FORM DEFINED. ALL INPUTS ARE OUTSIDE OF THE FORM, LINKED WITH form="order" attribute -->
+<form name="order" action="orderaction.php" method="post">
+<!-- FORM DEFINED. ALL INPUTS ARE LINKED WITH form="order" attribute -->
 
   <div id="slider">
   <div id="bulb" class="switchdark gradient-cw"></div>
@@ -76,22 +75,22 @@
     <div id="credit" class="choose-bg">CHOOSE A BACKGROUND IMAGE</div>
 
     <!-- top buttons -->
-    <button class="button btnSwitch" onclick="switching()" alt="Switch on/off"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+    <button type="button" class="button btnSwitch" onclick="switching()" alt="Switch on/off"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
 
     <a href="https://hineon.com/" target="new" alt="Open FAQ page in a new tab"><button class="button btnFAQ"><i class="fa fa-question" aria-hidden="true"></i></button></a>
 
-    <button class="button btnShare" onclick="socialmediatoggle()" alt="Share with your friends"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+    <button type="button" class="button btnShare" onclick="socialmediatoggle()" alt="Share with your friends"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
 
-    <button class="button btnMail" onclick="modalemailtoggle()" alt="Email current customization settings to yourself"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+    <button type="button" class="button btnMail" onclick="modalemailtoggle()" alt="Email current customization settings to yourself"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
 
 
     <!-- Hidden buttons -->
 
     <div class="hiddenbutton">
       <ul>
-      <li><button class="button btnFacebook" alt="Share with your friends"><i class="fa fa-facebook" aria-hidden="true"></i></button></li>
-      <li><button class="button btnTwitter" alt="Share with your friends"><i class="fa fa-twitter" aria-hidden="true"></i></button></li>
-      <li><button class="button btnInsta" alt="Share with your friends"><i class="fa fa-instagram" aria-hidden="true"></i></button></li>
+      <li><button type="button" class="button btnFacebook" alt="Share with your friends"><i class="fa fa-facebook" aria-hidden="true"></i></button></li>
+      <li><button type="button" class="button btnTwitter" alt="Share with your friends"><i class="fa fa-twitter" aria-hidden="true"></i></button></li>
+      <li><button type="button" class="button btnInsta" alt="Share with your friends"><i class="fa fa-instagram" aria-hidden="true"></i></button></li>
       </ul>
     </div>
 
@@ -109,16 +108,17 @@
 
     <div id="email" class="modal">
     <h1>SAVE <span class="xxshide">CURRENT SCREEN </span>TO MY EMAIL</h1>
-      <!-- INPUT / SUBMIT HERE -->
-    <label>NAME</label><input id="modalname" type="text" form="order">
-      <!-- INPUT / SUBMIT HERE -->
-    <label>EMAIL</label><input id="modalemail" type="text" form="order">
-    <br>
-      <!-- INPUT / SUBMIT HERE -->
-    <label for="subscribe">STAY CONNECTED FOR <span class="xxshide">NEWS AND </span>UPDATES!&nbsp;</label><input type="checkbox" id="subscribe" name="subscribe" value="subscribe" form="order">
-      <!-- INPUT / SUBMIT HERE -->
-    <button id="modalemailsubmit" type="submit" class="modalbutton">EMAIL</button>
-
+    <!-- USE SEPARATE FORM -->
+          <!-- INPUT / SUBMIT HERE -->
+        <label>NAME</label><input id="modalname" type="text">
+          <!-- INPUT / SUBMIT HERE -->
+        <label>EMAIL</label><input id="modalemail" type="text">
+        <br>
+          <!-- INPUT / SUBMIT HERE -->
+        <label for="subscribe">STAY CONNECTED FOR <span class="xxshide">NEWS AND </span>UPDATES!&nbsp;</label><input type="checkbox" id="subscribe" name="subscribe" value="subscribe">
+          <!-- INPUT / SUBMIT HERE -->
+        <button type="button" id="modalemailsubmit" type="submit" class="modalbutton">EMAIL</button>
+    <!-- DONE SEPARATE FORM -->
      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose modalclose" aria-hidden="true"></i></span> 
     </div>
 
@@ -162,7 +162,7 @@
 <div class="widther">
 
 <textarea id="clientText" id="clientText" name="clientText" class="clientTextBase cw" rows="6" placeholder="TYPE
-HERE!" wrap="off" autofocus></textarea>
+HERE!" wrap="off" required="required" autofocus></textarea>
 
 <!-- BACKDROP -->
 
@@ -179,19 +179,19 @@ HERE!" wrap="off" autofocus></textarea>
     <!-- bottom menu -->  
     <ul class="bottomnav">
       <li>
-      <button id="menu" class="tablinks menu menuText" onclick="openMenu(event, 'Text')"><span class="xshide">TEXT</span><span class="xsshow"><i class="fa fa-font" aria-hidden="true"></i></span></button>
+      <button type="button" id="menu" class="tablinks menu menuText" onclick="openMenu(event, 'Text')"><span class="xshide">TEXT</span><span class="xsshow"><i class="fa fa-font" aria-hidden="true"></i></span></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuColor" onclick="openMenu(event, 'Color')"><span class="xshide">COLOR</span><span class="xsshow"><i class="fa fa-tint" aria-hidden="true"></i></span></button>
+      <button type="button" id="menu" class="tablinks menu menuColor" onclick="openMenu(event, 'Color')"><span class="xshide">COLOR</span><span class="xsshow"><i class="fa fa-tint" aria-hidden="true"></i></span></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuShape" onclick="openMenu(event, 'Shape')"><span class="xshide">SHAPE</span><span class="xsshow"><i class="fa fa-square-o" aria-hidden="true"></i></span></button>
+      <button type="button" id="menu" class="tablinks menu menuShape" onclick="openMenu(event, 'Shape')"><span class="xshide">SHAPE</span><span class="xsshow"><i class="fa fa-square-o" aria-hidden="true"></i></span></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuInstallation" onclick="openMenu(event, 'Installation')"><span class="xshide">INSTALL</span><span class="mobilehide">ATION</span><span class="xsshow"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+      <button type="button" id="menu" class="tablinks menu menuInstallation" onclick="openMenu(event, 'Installation')"><span class="xshide">INSTALL</span><span class="mobilehide">ATION</span><span class="xsshow"><i class="fa fa-wrench" aria-hidden="true"></i></button>
       </li>
       <li>
-      <button id="menu" class="tablinks menu menuQtyShipping" onclick="openMenu(event, 'QtyShipping')"><span class="xshide">QTY&amp;SHIP</span><span class="mobilehide">PING</span><span class="xsshow"><i class="fa fa-gift" aria-hidden="true"></i></span></button>
+      <button type="button" id="menu" class="tablinks menu menuQtyShipping" onclick="openMenu(event, 'QtyShipping')"><span class="xshide">QTY&amp;SHIP</span><span class="mobilehide">PING</span><span class="xsshow"><i class="fa fa-gift" aria-hidden="true"></i></span></button>
       </li>
     </ul>
 
@@ -208,7 +208,7 @@ HERE!" wrap="off" autofocus></textarea>
       <div class="tabsection availFonts">
         <h4>AVAILABLE FONTS</h4>
         <div class="fonts">
-          <input form="order" type="radio" id="fontA" name="chooseFont" value="fontA" checked>
+          <input form="order" type="radio" id="fontA" name="chooseFont" value="fontA" required="required" checked>
           <label onclick="fontChange('Font A')" for="fontA"><img src="img/font/fontA.png"></label>
           <input form="order" type="radio" id="fontB" name="chooseFont" value="fontB">
           <label onclick="fontChange('Font B')" for="fontB"><img src="img/font/fontB.png"></label>
@@ -229,7 +229,7 @@ HERE!" wrap="off" autofocus></textarea>
 
        <div class="tabsection sizeAlign">
         <div class="fontSize">      
-          <input form="order" type="radio" id="S" name="chooseFontSize" value="small" checked>
+          <input form="order" type="radio" id="S" name="chooseFontSize" value="small" required="required" checked>
           <label for="S" class="qtipSmall"><img src="img/font/sizeS.png"></label>
           <input form="order" type="radio" id="M" name="chooseFontSize" value="medium">
           <label for="M" class="qtipMedium"><img src="img/font/sizeM.png"></label>
@@ -238,7 +238,7 @@ HERE!" wrap="off" autofocus></textarea>
         </div>
 
         <div class="fontAlign">
-          <input form="order" type="radio" id="Left" name="chooseFontAlign" value="alignLeft">
+          <input form="order" type="radio" id="Left" name="chooseFontAlign" value="alignLeft" required="required">
           <label for="Left"><i class="fa fa-align-left" aria-hidden="true"></i></label>
           <input form="order" type="radio" id="Center" name="chooseFontAlign" value="alignCenter" checked>
           <label for="Center"><i class="fa fa-align-center" aria-hidden="true"></i></label>
@@ -269,7 +269,7 @@ HERE!" wrap="off" autofocus></textarea>
         <div class="colorType">
           <strong><p class="colorHeader">COOL/WARM WHITE</p></strong>
           <p class="colorSummary">Two or three words summary</p>
-          <input form="order" type="radio" id="Cool" name="chooseColor" value="whiteCool" checked>
+          <input form="order" type="radio" id="Cool" name="chooseColor" value="whiteCool" required="required" checked>
           <label onclick="colorChange('Cool White')" for="Cool" class="qtipCw"><img src="img/color/cool_white.png"></label>
           <input form="order" type="radio" id="Warm" name="chooseColor" value="whiteWarm">
           <label onclick="colorChange('Warm White')" for="Warm" class="qtipWw"><img src="img/color/warm_white.png"></label>
@@ -329,7 +329,7 @@ HERE!" wrap="off" autofocus></textarea>
         <h4>AVAILABLE BACKDROP <span class="xshide">SHAPES</span></h4>
 
         <!-- indoor -->
-        <input form="order" type="radio" id="In" name="chooseIndoorOutdoor" value="indoor" checked>
+        <input form="order" type="radio" id="In" name="chooseIndoorOutdoor" value="indoor" required="required" checked>
         <label for="In" class="displayRadio" style="text-align: left; border: none;">
           <strong><p class="colorHeader">INDOOR</p></strong>
           <p>Clear Acrylic</p>
@@ -344,7 +344,7 @@ HERE!" wrap="off" autofocus></textarea>
       </div>
 
       <div class="tabsection availShapes">
-        <input form="order" type="radio" id="rectangle" name="chooseShape" value="rectangle">
+        <input form="order" type="radio" id="rectangle" name="chooseShape" value="rectangle" required="required">
           <label for="rectangle"><img src="img/shape/rectangle.png" class="rectangleLabelImg"></label>
         <input form="order" type="radio" id="square" name="chooseShape" value="square">
           <label for="square"><img src="img/shape/square.png"></label>
@@ -373,7 +373,7 @@ HERE!" wrap="off" autofocus></textarea>
         <h4>AVAILABLE <span class="xxshide">INSTALLATION </span>OPTIONS</h4>
 
         <!-- standard -->
-        <input form="order" type="radio" id="standard" name="chooseNails" value="standard" checked>
+        <input form="order" type="radio" id="standard" name="chooseNails" value="standard" required="required" checked>
         <label for="standard" class="displayRadio" style="text-align: left; border: none;">
           <strong><p class="colorHeader">STANDARD NAILS</p></strong>
           <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, <span class="xshide">sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</span></p>
@@ -400,22 +400,22 @@ HERE!" wrap="off" autofocus></textarea>
       <div class="tabsection infoText">
         <h3 class="contentHeader">QUANTITY &amp; SHIPPING</h3>
         <label for="qty">QUANTITY</label>
-        <input form="order" id="qty" type="number" name="orderQuantity" min="1">
+        <input form="order" id="qty" type="number" name="orderQuantity" min="1" required="required">
       </div>
 
       <div class="tabsection basicInfo">
         <div class="ifield">
           <label for="name">NAME</label>
-          <input form="order" id="name" type="text" name="fullName" size="42">
+          <input form="order" id="name" type="text" name="fullName" size="42" required="required">
         </div>
         <div class="ifield">
           <label for="basicEmail">EMAIL</label>
-          <input form="order" id="basicEmail" type="text" name="orderEmail" size="42">
+          <input form="order" id="basicEmail" type="text" name="orderEmail" size="42" required="required">
         </div>
         <div class="ifield why">
           <label for="basicZipcode">ZIPCODE</label>
-          <input form="order" id="basicZipcode" type="text" name="orderZip">
-          <select id="basicCountry" list="countries" name="orderCountry">
+          <input form="order" id="basicZipcode" type="text" name="orderZip" required="required">
+          <select id="basicCountry" list="countries" name="orderCountry" required="required">
             <option value="Canada">Canada</option>
             <option value="United States" selected>United States</option>
             <option value="United Kingdom">United Kingdom</option>
@@ -445,10 +445,10 @@ HERE!" wrap="off" autofocus></textarea>
    <!-- call to action -->  
     <ul class="cta">
       <li>
-      <button id="quote" type="submit" class="menu menuGetQuote" onclick="openMenu(event, 'GetQuote')">GET QUOTE</button>
+      <button id="quote" type="submit" name="submit" class="menu menuGetQuote" onclick="openMenu(event, 'GetQuote')">GET QUOTE</button>
       </li>
       <li>
-      <button id="checkout" type="submit" class="menu menuCheckout" onclick="openMenu(event, 'Purchase')">PURCHASE</button>
+      <button id="checkout" type="submit" name="submit" class="menu menuCheckout" onclick="openMenu(event, 'Purchase')">PURCHASE</button>
       </li>
     </ul>
 
@@ -478,6 +478,9 @@ HERE!" wrap="off" autofocus></textarea>
   </div><!-- Closing the Quote Tab-->
 
 </div><!-- Closing Bottom Panel-->
+
+
+</form>
 
 </div> <!-- end the entire #webapp -->
 
@@ -555,26 +558,6 @@ function colorChange(color) {
   document.getElementById('highlighted').innerHTML = color
 }
 
-var webapp = $('#webapp');
-
-var render = function() {
-      
-      html2canvas(webapp, {
-        allowTaint: true,
-        taintTest: false,
-        onrendered: function(canvas) {
-          document.body.appendChild(canvas);
-          }
-      });
-};
-
-html2canvas(webapp, {
-        allowTaint: true,
-        taintTest: false,
-        onrendered: function(canvas) {
-          document.body.appendChild(canvas);
-          }
-});
 
 
 </script>
