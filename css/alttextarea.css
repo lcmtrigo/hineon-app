@@ -15,49 +15,54 @@ textarea:focus {
 }
 
 .clientTextBase {
-	position:relative;
+	position:absolute;
 	z-index:11111;
-	width:150px;
+	width:220px;
 	height: auto;
-	padding:20px;
+	padding:10px;
 	resize:none;
 	border:transparent;
 	background: transparent;
-	color: #ccc;
-	font-size:2.8em;
+	color: #fff;
+	font-size:3.2em;
 	vertical-align: middle;
 	text-align: center;
 	display:block;
-	margin:auto;
+	left:50%;
+	-webkit-transform:translateX(-50%);
+	transform:translateX(-50%);
 }
 
 .backdrop {
-	position:relative;
+	position:absolute;
 	z-index:10000;
 	width:10px;
 	height:auto;
-	padding: 20px;
+	padding:10px;
 	color: rgba(255,255,255,0.35);
 	vertical-align: middle;
 	text-align: center;
 	opacity:0;
 	display:block;
 	margin:auto;
+	left:50%;
+	-webkit-transform:translateX(-50%);
+	transform:translateX(-50%);
 }
 
 
 /* font */
 
 .size-small {
-	font-size: 2.8em;
+	font-size: 3.2em;
 }
 
 .size-medium {
-	font-size: 3.5em;
+	font-size: 5.6em;
 }
 
 .size-large {
-	font-size:4.2em;
+	font-size:8em;
 }
 
 .align-left {
@@ -108,88 +113,88 @@ textarea:focus {
 /* color */
 
 .cw {
-color: #F3F6FF;
+color: #F8F9FF;
 -webkit-text-stroke: 1px #FFF;
-text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 20px #bdccd4, 0 0 30px #bdccd4, 0 0 40px #bdccd4, 0 0 55px #bdccd4, 0 0 75px #bdccd4;
+text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 20px #EEF2FF, 0 0 30px #EEF2FF, 0 0 40px #EEF2FF, 0 0 55px #EEF2FF, 0 0 75px #EEF2FF;
 }
 
 
 .cr {
-color: #fe3721;
+color: #fc0d1f;
 -webkit-text-stroke: 1px #FE4444;
 text-shadow: 0 0 5px #FF6674, 0 0 5px #FF6674, 0 0 5px #FF6A62, 0 0 30px #FF6A62, 0 0 45px #FF6A62, 0 0 65px #FF6A62;
 }
 
 .co {
-color: #FE9744;
--webkit-text-stroke: 1px #FEAC44;
-text-shadow: 0 0 2px #FFCA8E, 0 0 2px #FFCA8E, 0 0 10px #FFBE5D, 0 0 30px #FFBE5D, 0 0 45px #FFBE5D, 0 0 65px #FFBE5D;
+color: #ff4a12;
+-webkit-text-stroke: 1px #FF6312;
+text-shadow: 0 0 2px #FF9812, 0 0 2px #FF9812, 0 0 10px #FF8D12, 0 0 30px #FF8D12, 0 0 45px #FF8D12, 0 0 65px #FFBE5D;
 }
 
-.cy {
-color: #FFF13D;
--webkit-text-stroke: 1px #FFff5D;
+.cgd {
+color: #ffcf44;
+-webkit-text-stroke: 1px #FFDD44;
 text-shadow: 0 0 5px #FFEAA7, 0 0 5px #FFEAA7, 0 0 10px #FFE967, 0 0 30px #FFE967, 0 0 45px #FFE967, 0 0 65px #FFE967;
 }
 
 .cg{
-color: #21FF6F;
--webkit-text-stroke: 1px #71FF89;
+color: #00ef00;
+-webkit-text-stroke: 1px #00F800;
 text-shadow: 0 0 5px #aaFF88, 0 0 5px #aaFF88, 0 0 10px #98FF7E, 0 0 30px #98FF7E, 0 0 45px #98FF7E, 0 0 65px #98FF7E;
 }
 
 .cb {
-color: #26AEFF;
--webkit-text-stroke: 1px #88b4FF;
-text-shadow: 0 0 5px #95d4FF, 0 0 5px #8185FF, 0 0 10px #0196FF, 0 0 30px #0196FF, 0 0 45px #4BBDFF, 0 0 65px #73CFFF;
+color: #0436ff;
+-webkit-text-stroke: 1px #2c6fff;
+text-shadow: 0 0 5px #0098ff, 0 0 5px #3c63ff, 0 0 10px #0180FF, 0 0 30px #0180FF, 0 0 45px #4BBDFF, 0 0 65px #73CFFF;
 }
 
 .cp {
-color: #FF2D97;
--webkit-text-stroke: 1px #FF57BE;
-text-shadow: 0 0 5px #FF84F0, 0 0 5px #FF84F0, 0 0 10px #FF57BE, 0 0 30px #FF57BE, 0 0 45px #FF57BE, 0 0 65px #FF57BE;
+color: #ff00e1;
+-webkit-text-stroke: 1px #ff45ee;
+text-shadow: 0 0 5px #ffb6f6, 0 0 5px #ffb6f6, 0 0 10px #ff57f0, 0 0 30px #ff57f0, 0 0 45px #ff57f0, 0 0 65px #ff57f0;
 }
 
-.cly {
-color: #FFFF65;
+.cy {
+color: #fff86c;
 -webkit-text-stroke: 1px #FFFFae;
 text-shadow: 0 0 5px #FFF781, 0 0 5px #FFF781, 0 0 10px #FFF389, 0 0 30px #FFF389, 0 0 45px #FFF389, 0 0 65px #FFF389;
 }
 
 
 .ww {
-color: #FFFEFF;
--webkit-text-stroke: 2px #FFFDD6;
-text-shadow: 0 0 5px #E3D6B9, 0 0 5px #E3D6B9, 0 0 10px #FFEFB9, 0 0 30px #FFEFB9, 0 0 55px #FFEFB9, 0 0 75px #FFEFB9;
+color: #fcf6eb;
+-webkit-text-stroke: 1px #fff;
+text-shadow: 0 0 5px #FEFBFB, 0 0 5px #FEFBFB, 0 0 20px #FFFAEE, 0 0 30px #FFFAEE, 0 0 40px #FFFAEE, 0 0 55px #FFFAEE, 0 0 75px #FFFAEE;
 }
 
 .wr {
-color: #FF8881;
+color: #ff4856;
 -webkit-text-stroke: 1px #FF5257;
 text-shadow: 0 0 5px #FF8774, 0 0 5px #FF8774, 0 0 10px #FF5257, 0 0 30px #FF5257, 0 0 45px #FF5257, 0 0 65px #FF5257;
 }
 
 .wo {
-color: #FFA15D;
--webkit-text-stroke: 1px #FF5F42;
+color: #ff7640;
+-webkit-text-stroke: 1px #FF875A;
 text-shadow: 0 0 5px #FF5F42, 0 0 5px #FF5F42, 0 0 10px #FFBD72, 0 0 30px #FFBD72, 0 0 45px #FF5F42, 0 0 65px #FF5F42;
 }
 
 .wg {
-color: #BEFFCA;
--webkit-text-stroke: 1px #2BFF98;
-text-shadow: 0 0 5px #4CFFA6, 0 0 5px #4CFFA6, 0 0 10px #74FFC4, 0 0 30px #74FFC4, 0 0 45px #74FFC4, 0 0 65px #74FFC4;
+color: #58f458;
+-webkit-text-stroke: 1px #69F570;
+text-shadow: 0 0 5px #4CFFA6, 0 0 5px #4CFFA6, 0 0 10px #80FF9B, 0 0 30px #80FF9B, 0 0 45px #80FF9B, 0 0 65px #80FF9B;
 }
 
 .wb {
-color: #88ddFF;
--webkit-text-stroke: 1px #11ccFF;
+color: #5182fc;
+-webkit-text-stroke: 1px #5597FF;
 text-shadow: 0 0 5px #01aaFF, 0 0 5px #01aaFF, 0 0 10px #11ccFF, 0 0 30px #11ccFF, 0 0 45px #11ccFF, 0 0 65px #11ccFF;
 }
 
 .wp {
-color: #FF9AFF;
--webkit-text-stroke: 1px #FF57FF;
+color: #ff52ff;
+-webkit-text-stroke: 1px #FF72FF;
 text-shadow: 0 0 5px #FF75FF, 0 0 5px #FF75FF, 0 0 10px #FF97FF, 0 0 30px #FF97FF, 0 0 45px #FF97FF, 0 0 65px #FF97FF;
 }
 
@@ -206,43 +211,43 @@ text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), 5px 10px 10px rgba(0, 0, 0, 0.5), 5
 
 
 .croff {
-color: #DC2728;
+color: #fc0d1f;
 -webkit-text-stroke: 1px #a42728;
 text-shadow: 2px 2px 5px rgba(50, 0, 0, 0.5), 5px 10px 10px rgba(30, 0, 0, 0.5), 5px 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .cooff {
-color: #FF8C26;
+color: #ff6d00;
 -webkit-text-stroke: 1px #F17A17;
 text-shadow: 2px 2px 5px rgba(50, 20, 0, 0.5), 5px 10px 10px rgba(30, 10, 0, 0.5), 5px 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-.cyoff {
-color: #FFC425;
+.cgdoff {
+color: #ffe000;
 -webkit-text-stroke: 1px #F2BB19;
 text-shadow: 2px 2px 5px rgba(50, 20, 0, 0.5), 5px 10px 10px rgba(30, 10, 0, 0.5), 5px 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-.clyoff {
-color: #FFEF5E;
+.cyoff {
+color: #f9f328;
 -webkit-text-stroke: 1px #F0DD4D;
 text-shadow: 2px 2px 5px rgba(50, 50, 0, 0.5), 5px 10px 10px rgba(30, 30, 0, 0.5), 5px 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .cgoff{
-color: #1FC06A;
+color: #12c649;
 -webkit-text-stroke: 1px #1CAF65;
 text-shadow: 2px 2px 5px rgba(10, 50, 20, 0.5), 5px 10px 10px rgba(5, 30, 10, 0.5), 5px 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .cboff {
-color: #4A99EE;
+color: #5f9cff;
 -webkit-text-stroke: 1px #3D87D5;
 text-shadow: 2px 2px 5px rgba(10, 20, 50, 0.5), 5px 10px 10px rgba(5, 10, 30, 0.5), 5px 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .cpoff {
-color: #BE44aC;
+color: #e803c7;
 -webkit-text-stroke: 1px #AC3078;
 text-shadow: 2px 2px 5px rgba(50, 10, 40, 0.5), 5px 10px 10px rgba(30, 5, 20, 0.5), 5px 15px 30px rgba(0, 0, 0, 0.3);
 }
@@ -250,14 +255,18 @@ text-shadow: 2px 2px 5px rgba(50, 10, 40, 0.5), 5px 10px 10px rgba(30, 5, 20, 0.
 
 /*shape*/
 
-.backdropCircle{
-border-radius: 50%;
-}
+
 
 .backdropSquare{
 overflow:hidden;
 background: #fff;
 opacity: .1;
+transform:translateX(-50%);
+}
+
+.backdropCircle{
+border-radius: 50%;
+transform: translateX(-50%) scale(1.15, 1.15);
 }
 
 .backdropRectangle{
@@ -267,8 +276,10 @@ opacity: .1;
 }
 
 .metal{
-background: #222;
-color:#222;
+background: -moz-linear-gradient(-45deg, #111111 1%, #4c4c4c 14%, #595959 19%, #666666 32%, #474747 43%, #2c2c2c 51%, #111111 62%, #000000 69%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #111111 1%,#4c4c4c 14%,#595959 19%,#666666 32%,#474747 43%,#2c2c2c 51%,#111111 62%,#000000 69%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #111111 1%,#4c4c4c 14%,#595959 19%,#666666 32%,#474747 43%,#2c2c2c 51%,#111111 62%,#000000 69%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+color: transparent;
 opacity: 1;
 }
 

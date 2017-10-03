@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Experiment</title>
+
+<style>
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.slides
+  {
+  height: 100px;
+}
+
+.bx-wrapper .bx-viewport {
+  background: black;
+}
+
+</style>
+ <link rel="stylesheet" href="bxslider/bxslider.css">
+</head>
+	 
+<body>
+
+<section id="capturethis">
+
+<button id="testing" onclick="render();">html2canvas TEST</button>
+
+<!-- start slide -->
+
+    <ul class="bxslider">
+
+      <li>
+      <div class="slides" style="background-color:#F7BDB7;">
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-color:#7EBDB7;">
+
+      
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-color:#AECBFF;">
+
+       
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-color:#FFEEB7;">
+
+      
+      </div>
+      </li>
+
+    </ul>
+
+ <!--end slide-->
+
+<br><br>
+<h1>HTML2CANVAS TESTING</h1>
+html2canvas (<a href="https://html2canvas.hertzen.com/" target="new">https://html2canvas.hertzen.com/</a>) is a free plugin that <span style="text-decoration: underline;">simulates</span> creating a screenshot from the designated HTML source. <span style="font-weight:700">IT IS NOT A REAL SCREENSHOT.</span> It's basically just reading off the HTML/CSS lines recorded on the document and regenerating it into a new "canvas" element. (<a href="https://www.w3schools.com/html/html5_canvas.asp" target="new">https://www.w3schools.com/html/html5_canvas.asp</a>) When canvas is generated, either user can save it manually by right clicking and stuff... or we (HiNeon) store it on our server using more script. Otherwise, canvas is NOT stored anywhere and is gone forever with the page refresh.
+<br><br>
+<h3>Trouble implementing with our web app at the moment</h3>
+ The background image slider, slides through images/divs by changing its position - using css: translate3D property. This property is unfortunately not supported by html2canvs plugin at the moment... Hence it's showing the bare background inside the slider viewport div. I can make the viewport background: black so that the letters can stand out better on screenshot but that's about it. We either change the slider plugin or html2canvas plug in, one of the other has to be gone.
+<br><br>
+<h3>If not using html2canvas</h3>
+Not sure what the GLO.NYC was doing through Meteor, but using one of those libraries might be an answer. Unfortunately we never had a further chance to study into those.<br><br>
+There are few third party services that enables client-side screenshot... and they all seem to be a paid service. (Most businesses use screenshots to get user feedback on their web app or stuff) <br>I made a list of few.<br><br>
+
+<a href="https://usersnap.com/" target="new">UserSnap</a> /
+<a href="https://www.bugmuncher.com/" target="new">BugMuncher</a> /
+<a href="https://grabz.it/index.aspx" target="new">GrabzIt screenshot tool</a> /
+<a href="https://wkhtmltopdf.org/" target="new">WK HTML to PDF --- this one is open source</a>
+
+<h2><a href="https://stackoverflow.com/questions/4912092/using-html5-canvas-javascript-to-take-in-browser-screenshots" target="new">Related question on stackoverflow</a></h2>
+<br><br>
+</section>
+
+
+ <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+ <script src="bxslider/bxslider.js"></script>
+ <script src="html2canvas/html2canvas.min.js"></script>
+ <script src="html2canvas/html2canvas.svg.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+
+
+var capture = $('#capturethis');
+
+var render = function() {
+      
+      html2canvas(capture, {
+        allowTaint: true,
+        taintTest: false,
+        onrendered: function(canvas) {
+          document.body.appendChild(canvas);
+          }
+      });
+};
+
+</script>
+</body>
+
+
+</html>

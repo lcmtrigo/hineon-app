@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>neon</title>
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="bxslider/bxslider.css">
+      <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.css">
+      <link rel="stylesheet" href="css/alt.css">
+      <link rel="stylesheet" href="css/alttextarea.css">
+      <link rel="stylesheet" href="css/mobile.css">
+  
+</head>
+
+<body>
+
+<section>
+<h1>TESTING TESTING</h1>
+<h2>Hello this is Clara</h2>
+<p style="font-size: 1.2em; font-family: helvetica, arial, sans-serif; margin: 20px;">
+  1. Generating Screenshot <br>
+  Please refer to "<a href="experimentcanvas.html" target="new">experimentcanvas.html</a>"
+  <br><br>
+  2. Purchase button <br>
+  Not too sure what the end result would have been, the button names and values are all spelled out different from each other so that form action can differentiate from which button was being used to submit. No action assigned to this button yet.
+  <br><br>
+  3. Get Quote button <br>
+  This button has to serve two end uses, a) show quote / b) send an email to us(HiNeon) <br>
+  At the moment, this button does send off an email that holds all user input information. Need to code in a way to check user input (email and stuff) first before being able to actually see the $n.nn numbers. Should be a way using front end scripting (JS)
+  <br><br>
+  4. For both buttons above <br>
+  All forms are being targetted to a hidden iframe ... that doesnt show on the page... to avoid being redirected upon form submission. This is though, apparently an old school trick, since the "target" attribute might or might not be faded out in future HTML versions. AJAX is apparently the right method to bring in at this point: So I tried implementing basic Ajax function but it still stripped all the input fields from user choices even though the page didn't redirect. :/ Not sure what to do. <br>
+  <a href='https://stackoverflow.com/questions/25983603/how-to-submit-html-form-without-redirection' target="new">Few tricks</a>
+  <br><br>
+  5. Social Media sharing <br>
+  I thought it would be better to deal with it after solving screenshot problem, so nothing really has been done here.
+</p>
+</section>
+
+
+
+<div id="webapp"><!-- web app outermost container -->
+
+
+    <!-- MODAL: email -->
+
+    <div id="email" class="modal">
+    <h1>SAVE <span class="xxshide">CURRENT SCREEN </span>TO MY EMAIL</h1>
+    <!-- USE SEPARATE FORM -->
+    <form action="modal.php" method="post" target="hiddeniframe" name="modalemailform" id="modalemailform">
+
+          <!-- INPUT / SUBMIT HERE -->
+        <label>NAME</label><input id="modalname" name="modalName" type="text" form="modalemailform" required="required">
+          <!-- INPUT / SUBMIT HERE -->
+        <label>EMAIL</label><input id="modalemail" name="modalEmail" type="text" form="modalemailform" required="required">
+        <br>
+          <!-- INPUT / SUBMIT HERE -->
+        <label for="subscribe">STAY CONNECTED FOR <span class="xxshide">NEWS AND </span>UPDATES!&nbsp;</label><input type="checkbox" id="subscribe" name="subscribe" value="subscribe" form="modalemailform">
+          <!-- INPUT / SUBMIT HERE -->
+        <button type="submit" name="modalSubmit" type="submit" class="modalbutton" form="modalemailform">EMAIL</button>
+
+        </form>
+    <!-- DONE SEPARATE FORM -->
+     <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose modalclose" aria-hidden="true"></i></span> 
+    </div>
+
+
+<!-- MAIN FORM DEFINED -->
+<form id="mainform" action="orderaction.php" method="post" target="hiddeniframe">
+
+
+  <!-- choose background -->  
+  <div id="slider">
+  <div id="bulb" class="switchdark gradient-cw"></div>
+
+    <ul class="bxslider">
+
+      <li>
+      <div class="slides" style="background-image: url('img/bg/indoor5.jpg'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('img/bg/outdoor3.jpg'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-image: url('img/bg/indoor1.jpg'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('img/bg/outdoor1.jpg'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-image: url('img/bg/indoor2.jpg'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('img/bg/outdoor6.jpg'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
+      <li>
+      <div class="slides" style="background-image: url('img/bg/indoor4.jpg'); background-size:cover; background-position: center center;">
+
+        <div class="outdoorSlider" style="background-image: url('img/bg/outdoor5.jpg'); background-size:cover; background-position: center center;"></div>
+
+      </div>
+      </li>
+
+    </ul>
+
+  </div> <!--end slide div-->
+
+
+<div id="toppanel">
+    <div id="credit" class="choose-bg">CHOOSE A BACKGROUND IMAGE</div>
+
+    <!-- top buttons -->
+    <button type="button" class="button btnSwitch" onclick="switching()" alt="Switch on/off"><i class="fa fa-lightbulb-o" aria-hidden="true"></i></button>
+
+    <a href="https://hineon.com/" target="new" alt="Open FAQ page in a new tab"><button class="button btnFAQ"><i class="fa fa-question" aria-hidden="true"></i></button></a>
+
+    <button type="button" class="button btnShare" onclick="socialmediatoggle()" alt="Share with your friends"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+
+    <button type="button" class="button btnMail" onclick="modalemailtoggle()" alt="Email current customization settings to yourself"><i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+
+
+    <!-- Hidden buttons -->
+
+    <div class="hiddenbutton">
+      <ul>
+      <li><button type="button" class="button btnFacebook" alt="Share with your friends"><i class="fa fa-facebook" aria-hidden="true"></i></button></li>
+      <li><button type="button" class="button btnTwitter" alt="Share with your friends"><i class="fa fa-twitter" aria-hidden="true"></i></button></li>
+      <li><button type="button" class="button btnInsta" alt="Share with your friends"><i class="fa fa-instagram" aria-hidden="true"></i></button></li>
+      </ul>
+    </div>
+
+    <div class="sign-size"><h4 class="widthHeight"><span class="xshide">SIZE </span>W <span id="width"></span>" x H <span id="height"></span>"</h4>
+    <span id="fontHighlighted">Font</span> / <span id="highlighted">Color</span>
+    </div>
+
+</div>
+
+    <!-- Generating canvas image -->
+    <!-- check html2canvas library: http://html2canvas.hertzen.com/index.html-->
+
+
+    <!-- MODAL: Tooltips -->
+
+    <div id="faqText" class="modal">
+    <h1>FAQ: TEXT STYLES</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique id ex ac lacinia. Nullam elementum dapibus velit. Donec pretium urna eu mattis pretium. Phasellus sit amet diam vitae erat interdum porttitor faucibus in odio. Mauris eget egestas arcu, ac ullamcorper metus. Sed sit amet felis ut nibh bibendum venenatis nec vitae augue. Donec egestas ligula ligula, et vestibulum elit sollicitudin faucibus. Proin vestibulum tellus sit amet arcu pellentesque, id sagittis justo commodo. Maecenas tortor felis, scelerisque eget nibh ut, aliquam tempus metus. Duis ut ligula malesuada, euismod urna et, gravida ligula. Sed posuere tempor posuere.</p>
+    <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose modalclose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="faqColor" class="modal">
+    <h1>FAQ: LIGHT &amp; TUBE COLORS</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique id ex ac lacinia. Nullam elementum dapibus velit. Donec pretium urna eu mattis pretium. Phasellus sit amet diam vitae erat interdum porttitor faucibus in odio. Mauris eget egestas arcu, ac ullamcorper metus. Sed sit amet felis ut nibh bibendum venenatis nec vitae augue. Donec egestas ligula ligula, et vestibulum elit sollicitudin faucibus. Proin vestibulum tellus sit amet arcu pellentesque, id sagittis justo commodo. Maecenas tortor felis, scelerisque eget nibh ut, aliquam tempus metus. Duis ut ligula malesuada, euismod urna et, gravida ligula. Sed posuere tempor posuere.</p>
+    <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose modalclose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="faqShape" class="modal">
+    <h1>FAQ: BACKDROP SHAPES &amp; MATERIALS</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique id ex ac lacinia. Nullam elementum dapibus velit. Donec pretium urna eu mattis pretium. Phasellus sit amet diam vitae erat interdum porttitor faucibus in odio. Mauris eget egestas arcu, ac ullamcorper metus. Sed sit amet felis ut nibh bibendum venenatis nec vitae augue. Donec egestas ligula ligula, et vestibulum elit sollicitudin faucibus. Proin vestibulum tellus sit amet arcu pellentesque, id sagittis justo commodo. Maecenas tortor felis, scelerisque eget nibh ut, aliquam tempus metus. Duis ut ligula malesuada, euismod urna et, gravida ligula. Sed posuere tempor posuere.</p>
+    <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose modalclose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="faqInstallation" class="modal">
+    <h1>FAQ: INSTALLATION METHODS</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique id ex ac lacinia. Nullam elementum dapibus velit. Donec pretium urna eu mattis pretium. Phasellus sit amet diam vitae erat interdum porttitor faucibus in odio. Mauris eget egestas arcu, ac ullamcorper metus. Sed sit amet felis ut nibh bibendum venenatis nec vitae augue. Donec egestas ligula ligula, et vestibulum elit sollicitudin faucibus. Proin vestibulum tellus sit amet arcu pellentesque, id sagittis justo commodo. Maecenas tortor felis, scelerisque eget nibh ut, aliquam tempus metus. Duis ut ligula malesuada, euismod urna et, gravida ligula. Sed posuere tempor posuere.</p>
+    <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose modalclose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="faqQtyShipping" class="modal">
+    <h1>FAQ: SHIPPING</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique id ex ac lacinia. Nullam elementum dapibus velit. Donec pretium urna eu mattis pretium. Phasellus sit amet diam vitae erat interdum porttitor faucibus in odio. Mauris eget egestas arcu, ac ullamcorper metus. Sed sit amet felis ut nibh bibendum venenatis nec vitae augue. Donec egestas ligula ligula, et vestibulum elit sollicitudin faucibus. Proin vestibulum tellus sit amet arcu pellentesque, id sagittis justo commodo. Maecenas tortor felis, scelerisque eget nibh ut, aliquam tempus metus. Duis ut ligula malesuada, euismod urna et, gravida ligula. Sed posuere tempor posuere.</p>
+    <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose modalclose" aria-hidden="true"></i></span> 
+    </div>
+
+
+
+<!-- !!!!!!!!!!!!!TEXT INPUT!!!!!!!!!!!!! -->
+
+<div class="widther">
+
+<textarea id="clientText" id="clientText" name="clientText" class="clientTextBase cw" rows="6" placeholder="TYPE
+HERE!" wrap="off" required="required" oninput="updateWidthHeight()" autofocus></textarea>
+
+<!-- BACKDROP -->
+
+<div id="backdrop" class="backdrop"></div>
+
+</div>
+
+<!-- TEXT & BACKDROP END -->
+
+
+<div id="bottompanel">
+
+ <div class="tab"> 
+    <!-- bottom menu -->  
+    <ul class="bottomnav">
+      <li>
+      <button type="button" id="menu" class="tablinks menu menuText" onclick="openMenu(event, 'Text')"><span class="xshide">TEXT</span><span class="xsshow"><i class="fa fa-font" aria-hidden="true"></i></span></button>
+      </li>
+      <li>
+      <button type="button" id="menu" class="tablinks menu menuColor" onclick="openMenu(event, 'Color')"><span class="xshide">COLOR</span><span class="xsshow"><i class="fa fa-tint" aria-hidden="true"></i></span></button>
+      </li>
+      <li>
+      <button type="button" id="menu" class="tablinks menu menuShape" onclick="openMenu(event, 'Shape')"><span class="xshide">SHAPE</span><span class="xsshow"><i class="fa fa-square-o" aria-hidden="true"></i></span></button>
+      </li>
+      <li>
+      <button type="button" id="menu" class="tablinks menu menuInstallation" onclick="openMenu(event, 'Installation')"><span class="xshide">INSTALL</span><span class="mobilehide">ATION</span><span class="xsshow"><i class="fa fa-wrench" aria-hidden="true"></i></button>
+      </li>
+      <li>
+      <button type="button" id="menu" class="tablinks menu menuQtyShipping" onclick="openMenu(event, 'QtyShipping')"><span class="xshide">QTY&amp;SHIP</span><span class="mobilehide">PING</span><span class="xsshow"><i class="fa fa-gift" aria-hidden="true"></i></span></button>
+      </li>
+    </ul>
+
+    <!-- Tab Content -->
+
+    <div id="Text" class="tabcontent">
+    <div class="tabbox">
+
+      <div class="tabsection infoText mobilehide">
+        <h3 class="contentHeader">TEXT OPTIONS</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+
+      <div class="tabsection availFonts">
+        <h4>AVAILABLE FONTS</h4>
+        <div class="fonts">
+          <input type="radio" id="fontA" name="chooseFont" value="fontA" required="required" checked>
+          <label onclick="fontChange('Font A')" for="fontA"><img src="img/font/fontA.png"></label>
+          <input type="radio" id="fontB" name="chooseFont" value="fontB">
+          <label onclick="fontChange('Font B')" for="fontB"><img src="img/font/fontB.png"></label>
+          <input type="radio" id="fontC" name="chooseFont" value="fontC">
+          <label onclick="fontChange('Font C')" for="fontC"><img src="img/font/fontC.png"></label>
+          <input type="radio" id="fontD" name="chooseFont" value="fontD">
+          <label onclick="fontChange('Font D')" for="fontD"><img src="img/font/fontD.png"></label>
+          <input type="radio" id="fontE" name="chooseFont" value="fontE">
+          <label onclick="fontChange('Font E')" for="fontE"><img src="img/font/fontE.png"></label>
+          <input type="radio" id="fontF" name="chooseFont" value="fontF">
+          <label onclick="fontChange('Font F')" for="fontF"><img src="img/font/fontF.png"></label>
+          <input type="radio" id="fontG" name="chooseFont" value="fontG">
+          <label onclick="fontChange('Font G')" for="fontG"><img src="img/font/fontG.png"></label>
+          <input type="radio" id="fontH" name="chooseFont" value="fontH">
+          <label onclick="fontChange('Font H')" for="fontH"><img src="img/font/fontH.png"></label>
+        </div>
+       </div>
+
+       <div class="tabsection sizeAlign">
+        <div class="fontSize">      
+          <input type="radio" id="S" name="chooseFontSize" value="small" required="required" checked>
+          <label for="S" class="qtipSmall"><img src="img/font/sizeS.png"></label>
+          <input type="radio" id="M" name="chooseFontSize" value="medium">
+          <label for="M" class="qtipMedium"><img src="img/font/sizeM.png"></label>
+          <input type="radio" id="L" name="chooseFontSize" value="large">
+          <label for="L" class="trigger qtipLarge third"><img src="img/font/sizeL.png"></label> 
+        </div>
+
+        <div class="fontAlign">
+          <input type="radio" id="Left" name="chooseFontAlign" value="alignLeft" required="required">
+          <label for="Left"><i class="fa fa-align-left" aria-hidden="true"></i></label>
+          <input type="radio" id="Center" name="chooseFontAlign" value="alignCenter" checked>
+          <label for="Center"><i class="fa fa-align-center" aria-hidden="true"></i></label>
+          <input type="radio" id="Right" name="chooseFontAlign" value="alignRight">
+          <label for="Right"><i class="fa fa-align-right" aria-hidden="true"></i></label>
+        </div>
+
+      </div>
+    </div><!--close tabbox-->
+
+    <div class="bubblepointer toText"></div>
+      <i class="fa fa-question btnContentModalFAQ btnFaqText" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
+  
+    </div><!--close tabcontent-->
+
+    <div id="Color" class="tabcontent">
+    <div class="tabbox">
+
+      <div class="tabsection infoText mobilehide">
+        <h3 class="contentHeader">COLOR OPTIONS</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+
+      <div class="tabsection availColors">
+        <h4>AVAILABLE COLORS</h4>
+
+        <div class="colorType">
+          <strong><p class="colorHeader">COOL/WARM WHITE</p></strong>
+          <p class="colorSummary">Two or three words summary</p>
+          <input type="radio" id="Cool" name="chooseColor" value="whiteCool" required="required" checked>
+          <label onclick="colorChange('Cool White')" for="Cool" class="qtipCw"><img src="img/color/cool_white.png"></label>
+          <input type="radio" id="Warm" name="chooseColor" value="whiteWarm">
+          <label onclick="colorChange('Warm White')" for="Warm" class="qtipWw"><img src="img/color/warm_white.png"></label>
+        </div>
+
+        <div class="colorType pure">
+          <strong><p class="colorHeader">PURE (PLAIN WHITE TUBE)</p></strong>
+          <p class="colorSummary">Two or three words summary</p>
+          <input type="radio" id="WR" name="chooseColor" value="warmRed">
+          <label onclick="colorChange('Warm Red')" for="WR" class="qtipWr"><img src="img/color/pure_red.png"></label>
+          <input type="radio" id="WO" name="chooseColor" value="warmOrange">
+          <label onclick="colorChange('Warm Orange')" for="WO" class="qtipWo"><img src="img/color/pure_orange.png"></label>
+          <input type="radio" id="WG" name="chooseColor" value="warmGreen">
+          <label onclick="colorChange('Warm Green')" for="WG" class="qtipWg"><img src="img/color/pure_green.png"></label>
+          <input type="radio" id="WB" name="chooseColor" value="warmBlue">
+          <label onclick="colorChange('Warm Blue')" for="WB" class="qtipWb"><img src="img/color/pure_blue.png"></label>
+          <input type="radio" id="WV" name="chooseColor" value="warmPink">
+          <label onclick="colorChange('Warm Pink')" for="WV" class="qtipWp"><img src="img/color/pure_pink.png"></label>
+        </div>
+
+        <div class="colorType solid">
+          <strong><p class="colorHeader">SOLID (COLORED TUBE)</p></strong>
+          <p class="colorSummary">Two or three words summary</p>
+          <input type="radio" id="CR" name="chooseColor" value="coolRed">
+          <label onclick="colorChange('Cool Red')" for="CR" class="qtipCr"><img src="img/color/solid_red.png"></label>
+          <input type="radio" id="CO" name="chooseColor" value="coolOrange">
+          <label onclick="colorChange('Cool Orange')" for="CO" class="qtipCo"><img src="img/color/solid_orange.png"></label>
+          <input type="radio" id="CGD" name="chooseColor" value="coolGold">
+          <label onclick="colorChange('Cool Gold')" for="CGD" class="qtipCgd"><img src="img/color/solid_gold.png"></label>
+          <input type="radio" id="CY" name="chooseColor" value="coolYellow">
+          <label onclick="colorChange('Cool Yellow')" for="CY" class="qtipCy"><img src="img/color/solid_yellow.png"></label>
+          <input type="radio" id="CG" name="chooseColor" value="coolGreen">
+          <label onclick="colorChange('Cool Green')" for="CG" class="qtipCg"><img src="img/color/solid_green.png"></label>
+          <input type="radio" id="CB" name="chooseColor" value="coolBlue">
+          <label onclick="colorChange('Cool Blue')" for="CB" class="qtipCb"><img src="img/color/solid_blue.png"></label>
+          <input type="radio" id="CP" name="chooseColor" value="coolPink">
+          <label onclick="colorChange('Cool Pink')" for="CP" class="qtipCp"><img src="img/color/solid_pink.png"></label>
+        </div>
+    </div>
+
+    </div><!--close tabbox-->
+
+    <div class="bubblepointer toColor"></div>
+      <i class="fa fa-question btnContentModalFAQ btnFaqColor" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
+    </div><!--close tabcontent-->
+
+    <div id="Shape" class="tabcontent">
+    <div class="tabbox">
+
+      <div class="tabsection infoText mobilehide">
+        <h3 class="contentHeader">SHAPE OPTIONS</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+
+      <div class="tabsection indoorOutdoor">
+        <h4>AVAILABLE BACKDROP <span class="xshide">SHAPES</span></h4>
+
+        <!-- indoor -->
+        <input type="radio" id="In" name="chooseIndoorOutdoor" value="indoor" required="required" checked>
+        <label for="In" class="displayRadio" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">INDOOR</p></strong>
+          <p>Clear Acrylic</p>
+        </label>
+
+        <!-- outdoor -->
+        <input type="radio" id="Out" name="chooseIndoorOutdoor" value="outdoor">
+        <label for="Out" class="displayRadio" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">OUTDOOR</p></strong>
+          <p>Waterproof Metal</p>
+        </label>
+      </div>
+
+      <div class="tabsection availShapes">
+        <input type="radio" id="rectangle" name="chooseShape" value="rectangle" required="required">
+          <label for="rectangle"><img src="img/shape/rectangle.png" class="rectangleLabelImg"></label>
+        <input type="radio" id="square" name="chooseShape" value="square">
+          <label for="square"><img src="img/shape/square.png"></label>
+        <input type="radio" id="circle" name="chooseShape" value="circle">
+          <label for="circle"><img src="img/shape/circle.png"></label>
+        <input type="radio" id="outline" name="chooseShape" value="outline">
+          <label for="outline"><img src="img/shape/outline.png"></label>
+      </div>
+
+    </div><!--close tabbox -->
+
+    <div class="bubblepointer toShape"></div>
+      <i class="fa fa-question btnContentModalFAQ btnFaqShape" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
+    </div><!--close tabcontent-->
+
+    <div id="Installation" class="tabcontent">
+    <div class="tabbox">
+
+      <div class="tabsection infoText mobilehide">
+        <h3 class="contentHeader">INSTALLATION OPTIONS</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+
+      <div class="tabsection availNails">
+        <h4>AVAILABLE <span class="xxshide">INSTALLATION </span>OPTIONS</h4>
+
+        <!-- standard -->
+        <input type="radio" id="standard" name="chooseNails" value="standard" required="required" checked>
+        <label for="standard" class="displayRadio" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">STANDARD NAILS</p></strong>
+          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, <span class="xshide">sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</span></p>
+        </label>
+
+        <!-- installation -->
+        <input type="radio" id="hanging" name="chooseNails" value="hanging">
+        <label for="hanging" class="displayRadio" style="text-align: left; border: none;">
+          <strong><p class="colorHeader">HANGING NAILS</p></strong>
+          <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, <span class="xshide">sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna</span></p>
+        </label>
+      </div>
+
+    </div><!--close tabbox-->
+
+    <div class="bubblepointer toInstallation"></div>
+      <i class="fa fa-question btnContentModalFAQ btnFaqInstallation" aria-hidden="true"></i>
+      <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
+    </div><!--close tabcontent-->
+
+    <div id="QtyShipping" class="tabcontent">
+    <div class="tabbox">
+
+      <div class="tabsection infoText">
+        <h3 class="contentHeader">QUANTITY &amp; SHIPPING</h3>
+        <label for="qty">QUANTITY</label>
+        <input id="qty" type="number" name="orderQuantity" min="1" required="required">
+      </div>
+
+      <div class="tabsection basicInfo">
+        <div class="ifield">
+          <label for="name">NAME</label>
+          <input id="name" type="text" name="fullName" size="42" required="required">
+        </div>
+        <div class="ifield">
+          <label for="basicEmail">EMAIL</label>
+          <input id="basicEmail" type="text" name="orderEmail" size="42" required="required">
+        </div>
+        <div class="ifield why">
+          <label for="basicZipcode">ZIPCODE</label>
+          <input id="basicZipcode" type="text" name="orderZip" required="required">
+          <select id="basicCountry" list="countries" name="orderCountry" required="required">
+            <option value="Canada">Canada</option>
+            <option value="United States" selected>United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+            <option value="AUS/NZ">AUS/NZ</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tabsection comment">
+        <label for="comment" class="xshide">COMMENT</label>
+        <textarea id="comment" name="orderComment" rows="8" cols="45" placeholder="Feel free to leave us a comment!"></textarea>
+      </div>
+    </div><!--close tabbox-->
+
+    <div class="bubblepointer toQtyShipping"></div>
+        <i class="fa fa-question btnContentModalFAQ btnFaqQtyShipping" aria-hidden="true"></i>
+        <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose btnMenuDie" aria-hidden="true"></i></span> 
+    </div><!--close tabcontent-->
+
+  </div><!--Closing Menu Tab-->
+
+
+
+  <div class="tab"> <!--Opening Quote Tab-->
+   <!-- call to action -->  
+    <ul class="cta">
+      <li>
+      <button id="quote" type="submit" name="quote" class="menu menuGetQuote" onclick="openMenu(event, 'GetQuote')">GET QUOTE</button>
+      </li>
+      <li>
+      <button id="checkout" type="button" name="purchase" class="menu menuCheckout" onclick="openMenu(event, 'Purchase')">PURCHASE</button>
+      </li>
+    </ul>
+
+    <div id="GetQuote" class="tabcontent">
+    <div class="quoteTabbox">
+      <div class="tabsection quoteText">
+        <h3 class="contentHeader">YOUR QUOTE</h3>
+        <h4>USD <span class="dollar">$<span id="dollar">0.00</span></span></h4>
+        <p>Estimated Delivery: <span></span></p>
+      </div>
+    </div>
+    <div class="bubblepointer toGetQuote"></div>
+        <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+    </div>
+
+    <div id="Purchase" class="tabcontent">
+    <div class="quoteTabbox">
+      <div class="tabsection quoteText">
+        <h3 class="contentHeader">THANK YOU!</h3>
+        <p>Lorem ipsum dolor sit amet, consecteteuer adipiscing elit, sed diam nomummy nimh eulsmod tincidunt ut laoreet dolore magna aliquam erat Lorem ipsum Lorem ipsum delor</p>
+      </div>
+    </div>
+    <div class="bubblepointer toPurchase"></div>
+        <span onclick="this.parentElement.style.display='none'"><i class="fa fa-times btnContentClose" aria-hidden="true"></i></span> 
+    </div>
+
+  </div><!-- Closing the Quote Tab-->
+
+</div><!-- Closing Bottom Panel-->
+
+
+</form><!-- DONE MAIN FORM -->
+
+</div> <!-- end the entire #webapp -->
+
+<!-- testing buttons for calculations -->
+<button onclick="testTapeLength()">tape length</button>
+<button onclick="testWidth()">width</button>
+<button onclick="testHeight()">height</button>
+<button onclick="testDimensionWeight()">dimension weight</button>
+
+
+<iframe name="hiddeniframe" src="" width="0" height="0" style="display:none;"></iframe>
+
+<section>
+<h1>LAST EDIT: TUESDAY OCTOBER 2, 2017</h1>
+</section>
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="bxslider/bxslider.js"></script>
+  <script src="http://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.js"></script>
+  <script src="js/altalt.js"></script>
+  <script src="js/qtipsizecolor.js"></script>
+  <script src="html2canvas/html2canvas.min.js"></script>
+  <script src="html2canvas/html2canvas.svg.min.js"></script>
+  <script src="js/calc.js"></script>
+
+
+<script>
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+
+/* textarea */
+var lines; 
+
+function variable() {
+
+  var Sizechoice = $('input[name=chooseFontSize]:checked').val();
+
+  if (Sizechoice=='small') {
+          lines = 6;
+       } else if (Sizechoice=='medium') {
+          lines = 6;
+       } else if (Sizechoice=='large') {
+          lines = 4;
+       } else {
+        lines = 6;
+       };
+
+  }
+
+$('#clientText').keydown(function(e) {
+
+        variable();
+
+        var Sizechoice = $('input[name=chooseFontSize]:checked').val();
+        newLines = $(this).val().split("\n").length;
+        
+        if(e.keyCode == 13 && newLines >= lines) {
+            $('#clientText').css('color', 'red');
+            alert('Maximum '+lines+' lines only for '+Sizechoice+' sized text!');
+            return false;
+            
+        }
+        else {
+            $('#clientText').css('color', '');
+        }
+    });
+
+
+$('.trigger').on('click', function(){
+          var e = jQuery.Event("keydown");
+          e.keyCode = 13; //="enter"
+          setTimeout(function() {
+          $("#clientText").trigger(e);
+         }, 500); //Gotta give time for all pre-requisite functions to run first, so that the variables in alert messages display properly      
+});
+
+
+function fontChange(font) {
+  document.getElementById('fontHighlighted').innerHTML = font
+}
+
+function colorChange(color) {
+  document.getElementById('highlighted').innerHTML = color
+}
+
+
+
+</script>
+
+</body>
+</html>

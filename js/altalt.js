@@ -1,3 +1,23 @@
+$('#clientText').keydown(function(e) {
+        Positioner();
+    });
+
+function Squarer() {
+
+      var textareaWidth = $('#clientText').width();
+      var textareaHeight = $('#clientText').height();
+      var backdropWidth = $('#backdrop').width();
+      var backdropHeight = $('#backdrop').height();
+
+       if (backdropWidth>backdropHeight) {
+          $('#backdrop').height(textareaWidth);
+       } else if (backdropHeight>backdropWidth) {
+          $('#backdrop').width(textareaHeight);
+       }
+       else {}
+        
+}
+
 function Shaper() {
        
        var Shapechoice = $('input[name=chooseShape]:checked').val();
@@ -6,19 +26,23 @@ function Shaper() {
        var backdropWidth = $('#clientText').width();
        var backdropHeight = $('#clientText').height();
 
+
        if (Shapechoice=='circle'&&Usechoice=='indoor') {
-          $("#backdrop").height(backdropWidth);
+          $("#backdrop").height(backdropHeight);
           $("#backdrop").width(backdropWidth);
+
+          Squarer();
 
           $("#backdrop").addClass('backdropSquare backdropCircle');
           $("#backdrop").removeClass('backdropRectangle backdropOutline metal');
        } else if (Shapechoice=='square'&&Usechoice=='indoor') {
-          $("#backdrop").height(backdropWidth);
+          $("#backdrop").height(backdropHeight);
           $("#backdrop").width(backdropWidth);
+
+          Squarer();
 
           $("#backdrop").addClass('backdropSquare');
           $("#backdrop").removeClass('backdropCircle backdropRectangle backdropOutline metal');
-
        } else if (Shapechoice=='rectangle'&&Usechoice=='indoor') {
           $("#backdrop").height('auto');
           $("#backdrop").width(backdropWidth);
@@ -34,15 +58,17 @@ function Shaper() {
 
 
        } else if (Shapechoice=='circle'&&Usechoice=='outdoor') {
-          $("#backdrop").height(backdropWidth);
+          $("#backdrop").height(backdropHeight);
           $("#backdrop").width(backdropWidth);
+          Squarer();
 
           $("#backdrop").addClass('backdropSquare backdropCircle metal');
           $("#backdrop").removeClass('backdropRectangle backdropOutline');
 
        } else if (Shapechoice=='square'&&Usechoice=='outdoor') {
-          $("#backdrop").height(backdropWidth);
+          $("#backdrop").height(backdropHeight);
           $("#backdrop").width(backdropWidth);
+          Squarer();
 
           $("#backdrop").addClass('backdropSquare metal');
           $("#backdrop").removeClass('backdropCircle backdropRectangle backdropOutline');
@@ -63,22 +89,27 @@ function Shaper() {
 
 }
 
+function Mimic() {
+ $('#clientText').keyup();
+}
+
+
 function TextareaSizer() {
   
-  $('textarea').on('keyup',function() {
+  $('#clientText').on('keyup',function() {
   
   $(this).css('width','0px');
   $(this).css('height','0px');
-  $(this).css('width',Math.max(10,this.scrollWidth)+'px');
-  $(this).css('height',Math.max(50,this.scrollHeight)+'px');
+  $(this).css('width',Math.max(50,this.scrollWidth)+'px');
+  $(this).css('height',Math.max(1,this.scrollHeight)+'px');
 
     Shaper();
 
   });
 
-
-
 }
+
+
 
 function Positioner() {
   
@@ -88,18 +119,15 @@ function Positioner() {
   var textareaWidth = $("#clientText").width();
   var textareaHeight = $("#clientText").height();
 
-  var textareaTop = (frameHeight-textareaHeight-150)/2;
-  var textareaLeft = (frameWidth-textareaWidth-60)/2;
+  var percent = textareaHeight*0.05;
 
-  if (frameWidth >768) {
-    $("#clientText").css('top',textareaTop);
-    // $(".backdrop").css('top',-textareaHeight);
-  } else if (frameWidth <=768) {
-    $("#clientText").css('top',textareaTop);
-    // $(".backdrop").css('top',-textareaHeight);
-  } else {}
+  var textareaTop = (frameHeight-textareaHeight)/3;
+
+  $("#clientText").css('top',textareaTop-percent);
+  $(".backdrop").css('top',textareaTop-percent);
 
 }
+
 
 function mobileModal() {
 
@@ -136,9 +164,7 @@ function mobileFAQmodal() {
         $("div.modal").css("margin-left", leftMargin); 
         $("#email").css("margin-left",emailLeftMargin);
       }
-
  
-  
   var tabWidth = frameWidth-75;
   $(".tabbox").width(tabWidth);
 
@@ -242,28 +268,26 @@ $(document).ready(function()
    var textareaFont = $("#clientText").css("font-family");
     $(".backdrop").css("font-family", textareaFont);
 
+    Mimic();
+    TextareaSizer();
     Shaper();
-       
+
 
     }); /*fonts end*/
 
 /* font size */
 $('input[name=chooseFontSize]:radio').on('change', function() {
        
-      $('textarea').css('width','0px');
-      $('textarea').css('height','0px');
-      $('textarea').css('width',Math.max(10,this.scrollWidth)+'px');
-      $('textarea').css('height',Math.max(50,this.scrollHeight)+'px');  
 
        var Sizechoice = $('input[name=chooseFontSize]:checked').val();
 
-       if (Sizechoice=='fontSmall') {
+       if (Sizechoice=='small') {
           $("#clientText").addClass('size-small');
           $("#clientText").removeClass('size-medium size-large');
-       } else if (Sizechoice=='fontMedium') {
+       } else if (Sizechoice=='medium') {
           $("#clientText").addClass('size-medium');
           $("#clientText").removeClass('size-small size-large');
-       } else if (Sizechoice=='fontLarge') {
+       } else if (Sizechoice=='large') {
           $("#clientText").addClass('size-large');
           $("#clientText").removeClass('size-medium size-small');
        } else {
@@ -275,7 +299,10 @@ $('input[name=chooseFontSize]:radio').on('change', function() {
     $(".backdrop").css("font-size", textareaFontSize);
     $(".backdrop").css("line-height", textareaFontHeight);
 
+    Mimic();
+    TextareaSizer();
     Shaper();
+    Positioner();
 
 
 
@@ -316,147 +343,147 @@ $('input[name=chooseColor]:radio').on('change', function() {
 
        if (Colorchoice=='whiteCool'&&Switchoff=='none') {
           $("#clientText").addClass('cw woff');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-cw');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='whiteWarm'&&Switchoff=='none') {
           $("#clientText").addClass('ww woff');
-          $("#clientText").removeClass('cr co cy cg cb cp cly cw wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy cw wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-ww');
-          $("#bulb").removeClass('gradient-cw gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-cw gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmRed'&&Switchoff=='none') {
           $("#clientText").addClass('wr woff');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww cw wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww cw wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-wr');
-          $("#bulb").removeClass('gradient-ww gradient-cw gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-cw gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmOrange'&&Switchoff=='none') {
           $("#clientText").addClass('wo woff');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr cw wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr cw wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-wo');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-cw gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-cw gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmGreen'&&Switchoff=='none') {
           $("#clientText").addClass('wg woff');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo cw wb wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo cw wb wp croff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-wg');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-cw gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-cw gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmBlue'&&Switchoff=='none') {
           $("#clientText").addClass('wb woff');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg cw wp croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo wg cw wp croff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-wb');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-cw gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-cw gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmPink'&&Switchoff=='none') {
           $("#clientText").addClass('wp woff');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb cw croff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo wg wb cw croff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-wp');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-cw gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-cw gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolRed'&&Switchoff=='none') {
           $("#clientText").addClass('cr croff');
-          $("#clientText").removeClass('cw co cy cg cb cp cly ww wr wo wg wb wp woff cooff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cw co cgd cg cb cp cy ww wr wo wg wb wp woff cooff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-cr');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cw gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cw gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolOrange'&&Switchoff=='none') {
           $("#clientText").addClass('co cooff');
-          $("#clientText").removeClass('cr cw cy cg cb cp cly ww wr wo wg wb wp croff woff cyoff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr cw cgd cg cb cp cy ww wr wo wg wb wp croff woff cgdoff cyoff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-co');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-cw gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-cw gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
+       } else if (Colorchoice=='coolGold'&&Switchoff=='none') {
+          $("#clientText").addClass('cgd cgdoff');
+          $("#clientText").removeClass('cr co cw cg cb cp cy ww wr wo wg wb wp croff cooff woff cyoff cgoff cboff cpoff');
+          $("#bulb").addClass('gradient-cgd');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cw gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolYellow'&&Switchoff=='none') {
           $("#clientText").addClass('cy cyoff');
-          $("#clientText").removeClass('cr co cw cg cb cp cly ww wr wo wg wb wp croff cooff woff clyoff cgoff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cw ww wr wo wg wb wp croff cooff cgdoff woff cgoff cboff cpoff');
           $("#bulb").addClass('gradient-cy');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cw gradient-cly gradient-cg gradient-cb gradient-cp');
-       } else if (Colorchoice=='coolLightYellow'&&Switchoff=='none') {
-          $("#clientText").addClass('cly clyoff');
-          $("#clientText").removeClass('cr co cy cg cb cp cw ww wr wo wg wb wp croff cooff cyoff woff cgoff cboff cpoff');
-          $("#bulb").addClass('gradient-cly');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cw gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cw gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolGreen'&&Switchoff=='none') {
           $("#clientText").addClass('cg cgoff');
-          $("#clientText").removeClass('cr co cy cw cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff woff cboff cpoff');
+          $("#clientText").removeClass('cr co cgd cw cb cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff woff cboff cpoff');
           $("#bulb").addClass('gradient-cg');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cw gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cw gradient-cb gradient-cp');
        } else if (Colorchoice=='coolBlue'&&Switchoff=='none') {
           $("#clientText").addClass('cb cboff');
-          $("#clientText").removeClass('cr co cy cg cw cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff woff cpoff');
+          $("#clientText").removeClass('cr co cgd cg cw cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff woff cpoff');
           $("#bulb").addClass('gradient-cb');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cw gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cw gradient-cp');
        } else if (Colorchoice=='coolPink'&&Switchoff=='none') {
           $("#clientText").addClass('cp cpoff');
-          $("#clientText").removeClass('cr co cy cg cb cw cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cw cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff woff');
           $("#bulb").addClass('gradient-cp');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cw');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cw');
        }
 
 
       else if (Colorchoice=='whiteCool'&&Switchoff=='block') {
           $("#clientText").addClass('cw');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-cw');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='whiteWarm'&&Switchoff=='block') {
           $("#clientText").addClass('ww');
-          $("#clientText").removeClass('cr co cy cg cb cp cly cw wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy cw wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-ww');
-          $("#bulb").removeClass('gradient-cw gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-cw gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmRed'&&Switchoff=='block') {
           $("#clientText").addClass('wr');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww cw wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww cw wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-wr');
-          $("#bulb").removeClass('gradient-ww gradient-cw gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-cw gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmOrange'&&Switchoff=='block') {
           $("#clientText").addClass('wo');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr cw wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr cw wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-wo');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-cw gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-cw gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmGreen'&&Switchoff=='block') {
           $("#clientText").addClass('wg');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo cw wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo cw wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-wg');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-cw gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-cw gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmBlue'&&Switchoff=='block') {
           $("#clientText").addClass('wb');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg cw wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo wg cw wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-wb');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-cw gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-cw gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='warmPink'&&Switchoff=='block') {
           $("#clientText").addClass('wp');
-          $("#clientText").removeClass('cr co cy cg cb cp cly ww wr wo wg wb cw croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cy ww wr wo wg wb cw croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-wp');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-cw gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-cw gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolRed'&&Switchoff=='block') {
           $("#clientText").addClass('cr');
-          $("#clientText").removeClass('cw co cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cw co cgd cg cb cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-cr');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cw gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cw gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolOrange'&&Switchoff=='block') {
           $("#clientText").addClass('co');
-          $("#clientText").removeClass('cr cw cy cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr cw cgd cg cb cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-co');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-cw gradient-cy gradient-cly gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-cw gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cp');
+       } else if (Colorchoice=='coolGold'&&Switchoff=='block') {
+          $("#clientText").addClass('cgd');
+          $("#clientText").removeClass('cr co cw cg cb cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
+          $("#bulb").addClass('gradient-cgd');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cw gradient-cy gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolYellow'&&Switchoff=='block') {
           $("#clientText").addClass('cy');
-          $("#clientText").removeClass('cr co cw cg cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cp cw ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-cy');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cw gradient-cly gradient-cg gradient-cb gradient-cp');
-       } else if (Colorchoice=='coolLightYellow'&&Switchoff=='block') {
-          $("#clientText").addClass('cly');
-          $("#clientText").removeClass('cr co cy cg cb cp cw ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
-          $("#bulb").addClass('gradient-cly');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cw gradient-cg gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cw gradient-cg gradient-cb gradient-cp');
        } else if (Colorchoice=='coolGreen'&&Switchoff=='block') {
           $("#clientText").addClass('cg');
-          $("#clientText").removeClass('cr co cy cw cb cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cw cb cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-cg');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cw gradient-cb gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cw gradient-cb gradient-cp');
        } else if (Colorchoice=='coolBlue'&&Switchoff=='block') {
           $("#clientText").addClass('cb');
-          $("#clientText").removeClass('cr co cy cg cw cp cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cw cp cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-cb');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cw gradient-cp');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cw gradient-cp');
        } else if (Colorchoice=='coolPink'&&Switchoff=='block') {
           $("#clientText").addClass('cp');
-          $("#clientText").removeClass('cr co cy cg cb cw cly ww wr wo wg wb wp croff cooff cyoff clyoff cgoff cboff cpoff woff');
+          $("#clientText").removeClass('cr co cgd cg cb cw cy ww wr wo wg wb wp croff cooff cgdoff cyoff cgoff cboff cpoff woff');
           $("#bulb").addClass('gradient-cp');
-          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cy gradient-cly gradient-cg gradient-cb gradient-cw');
+          $("#bulb").removeClass('gradient-ww gradient-wr gradient-wo gradient-wg gradient-wb gradient-wp gradient-cr gradient-co gradient-cgd gradient-cy gradient-cg gradient-cb gradient-cw');
        } else {
         alert('Please select color!');
        };
@@ -537,10 +564,10 @@ function switching(){
           $('#clientText').toggleClass('croff');
        } else if ($('#clientText').hasClass('co')||$('#clientText').hasClass('cooff')){
           $('#clientText').toggleClass('cooff');
+       } else if ($('#clientText').hasClass('cgd')||$('#clientText').hasClass('cgdoff')){
+          $('#clientText').toggleClass('cgdoff');
        } else if ($('#clientText').hasClass('cy')||$('#clientText').hasClass('cyoff')){
           $('#clientText').toggleClass('cyoff');
-       } else if ($('#clientText').hasClass('cly')||$('#clientText').hasClass('clyoff')){
-          $('#clientText').toggleClass('clyoff');
        } else if ($('#clientText').hasClass('cg')||$('#clientText').hasClass('cgoff')){
           $('#clientText').toggleClass('cgoff');
        } else if ($('#clientText').hasClass('cb')||$('#clientText').hasClass('cboff')){
