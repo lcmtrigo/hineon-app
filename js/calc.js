@@ -19,13 +19,20 @@ var DIMENSION_WEIGHT_CONVERT = 5000;
 var DIMENSION_WEIGHT_DOLLARS_PER_KG = 7;
 
 var WATERPROOF_MULTIPLIER = 1.3;
-var INDOOR = 1;
+var NO_MULTIPLIER = 1;
+var INDOOR = "indoor";
+var OUTDOOR = "outdoor";
+
+var THREE_WEEKS_MILLISECONDS = 18140e5;
+
  
 
 // fontSize is the amount of tape you need to be able to make any character. set to small by default. this is for testing purposes only
 var fontSize = SMALL_CHAR_TAPE_LENGTH_INCHES * INCH_TO_METER;
 
 var inOutChoice = "indoor"; // default
+var qtyMultiplier = 1; // default
+
 
 
 /* 1. get the font size in meters
@@ -118,9 +125,10 @@ function getDimensionWeight() {
 */
 function getQuote() {
 	var price = getTapeLength() * X_CONST_USD + getDimensionWeight() * DIMENSION_WEIGHT_DOLLARS_PER_KG;
-	console.log('price before waterproofing: ' + price.toFixed(2));
+	console.log('unit price before waterproofing: ' + price.toFixed(2));
 	price *= isOutdoor(inOutChoice);
-	document.getElementById('price').innerHTML = price.toFixed(2);
+	price *= getQuantity(qtyMultiplier)
+	document.getElementById('dollar').innerHTML = price.toFixed(2);
 }
 
 // helper function for getQuote. adds waterproofing cost if needed
@@ -132,15 +140,30 @@ function isOutdoor(value) {
 	// console.log(inOutChoice);
 
 	if (value == "indoor") {
-		outdoor = INDOOR;
+		inOutChoice = "indoor";
+		outdoor = NO_MULTIPLIER;
 		console.log("type of backdrop: " + value + "\nNo charge added");
 	} else if (value == "outdoor") {
+		inOutChoice = "outdoor";
 		outdoor = WATERPROOF_MULTIPLIER;
 		console.log("type of backdrop: " + value + "\n30% waterproofing charge added");
 	} else {
 		outdoor = INVALID_INPUT;
 	}
 	return outdoor;
+}
+
+// helper function for getQuote(). returns a multiplier based on the quantity entered. 1 by default
+function getQuantity(qty) {
+	var num = document.getElementById("qty").value;
+	console.log("quantity ordered: " + num)
+	return qty * num;
+}
+
+// gets the expected delivery date (3 weeks from current date)
+function getDeliveryDate() {
+	var delivery = new Date(+new Date + THREE_WEEKS_MILLISECONDS);
+	document.getElementById("delivery-date").innerHTML = delivery.toDateString();
 }
 
 // helper function for isOutdoor. gets the font size selected from the tab section
